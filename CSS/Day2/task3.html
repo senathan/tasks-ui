@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-image</title>
+    <style>
+        /* div is a clay you can mould how much you want
+        
+        CSS Units
+        1.px
+        2.%
+        3.em
+        4.rem
+        5.ch - character
+        6.vw - viewport width
+        7.vh - viewport height
+         
+        
+        browser prefix
+
+         -moz-background-clip
+         -webkit-background-clip
+         -o-background-clip
+        */
+        div{
+            width: 600px;
+            height: 300px;
+            padding: 30px;
+            border: 10px solid red;
+            background-color: pink;
+            background-clip: border-box;
+            background-clip: content-box;
+            background-clip: padding-box;
+        }
+        h3{
+            
+            font-size: 50px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-image: url("3.jpeg");
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3>background-origin</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis autem cum dicta itaque similique fugit accusamus repellat in. In distinctio at explicabo voluptatum odit minus ea, cumque reiciendis suscipit facere.</p>
+    </div>
+</body>
+
+</html>
