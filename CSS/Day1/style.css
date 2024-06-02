@@ -1,0 +1,32 @@
+p{
+    color: red;
+    font-size: 20px;
+}
+h2{
+    color: green
+}
+
+h1{
+    color: brown
+}
+
+h1{
+    padding: 5px;
+    margin: 10px;
+}
+
+ h1,h2,p {
+    /* css reset - reset browser default properties  */
+    padding: 0;   /* computed property - we are chossing - box model - inner box*/
+    margin: 0; /* outer spacing is margin */
+}
+
+* {
+    /* css reset - reset browser default properties  */
+    padding: 0;   /* computed property - we are chossing - box model - inner box*/
+    margin: 0; /* outer spacing is margin */
+}
+
+body{
+    padding: 20px;
+}
