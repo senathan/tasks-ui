@@ -1,0 +1,137 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Model</title>
+    <!-- <img src="css task-1.png" alt=""> -->
+    <style>
+        /* div is a clay you can mould how much you want
+        
+        CSS Units
+        1.px
+        2.%
+        3.em
+        4.rem
+        5.ch - character
+        6.vw - viewport width
+        7.vh - viewport height
+        
+        */
+        
+        *{
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .top{
+            background-color: rgba(255,248,220,255);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px ;
+        }
+        body{
+            display: inline-block;
+            width: 50%;
+            margin: 0 auto;
+            padding: 0
+        }
+        .inner{
+            margin: 10px;
+            overflow: hidden;
+            border: none;
+            border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            width: 100%;
+        }
+        .inner > div {
+            flex: 1;    
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #first {
+            align-items: center;
+            background-color: red;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        #first h5,h6{
+            opacity: 60%;
+        }
+
+        #second h5{
+            opacity: 60%;
+        }
+
+        #second {
+            align-items: center;
+            background-color: #fff;
+        }
+        #third {
+            background-color: #fff;
+        }
+        button{
+            background-color: red;
+            padding: 10px 15px;
+            font-size: 18px;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            display: block;
+            margin-left: auto;
+            margin-right: 0;
+        }
+        .progress-container {
+            right: 10px;
+            top: 10px;
+            padding-bottom: 150px;
+            text-align: right;
+        }
+        progress#challenge {
+            width: 150px;
+            height: 5px;
+            border: none;
+            border-radius: 5px;
+            pic
+        }
+        progress::-webkit-progress-bar {
+            border-radius: 10px;
+        }
+        progress#challenge::-webkit-progress-value {
+            background-color: red;
+            border-radius: 10px;
+        }
+        label{
+            opacity: 60%;
+            margin-top: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="inner">
+            <div id="first">
+                <h5>COURSE</h3>
+                <h2 style="font-size: 2em;">Web <br> Devlopment</h2>
+                <h6 style="padding: 25px 0px 0px 0px">View all chapters</h6>
+            </div>
+            <div id="second">
+                <h5>CHAPTER 1</h3>
+                <h2>HTML & Basic</h2>
+            </div>
+            <div id="third">
+                <div class="progress-container">
+                    <progress id="challenge" value="6" max="9">60%</progress><br>
+                    <label>6/9 challenges</label>
+                </div>
+                <button>Continue</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

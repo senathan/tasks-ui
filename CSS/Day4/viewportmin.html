@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View port</title>
+    <style>
+        :root {
+            --primary-color:#273c75;
+            --secondary-color:aquamarine;
+            --padding: 15px;
+        }
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+        div{
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            height: 50vmax; /* H W viewport => Max */
+            width: 50vmax; /* H W viewport => Min */
+            width: 100vmin; /* font size - increase/decrease, side bars using examples navbar etc. */
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 20px;
+            padding: var(--padding);
+        }
+
+        ul{
+            list-style: none;
+            list-style-type: lower-greek;
+            list-style-image: none;
+            list-style-type: decimal;
+            list-style-type: decimal-leading-zero;
+            list-style-position: inside;
+        }
+
+        ol{
+            list-style-image: url("1.jpeg");
+            list-style: square inside url("sd.jpeg");
+        }
+    </style>
+</head>
+<body>
+    <div>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, tempore ea, consectetur libero sequi reiciendis tenetur voluptate sed nam eius error nostrum. Facilis, expedita molestias dolores neque obcaecati laboriosam quo.
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, tempore ea, consectetur libero sequi reiciendis tenetur voluptate sed nam eius error nostrum. Facilis, expedita molestias dolores neque obcaecati laboriosam quo.
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, tempore ea, consectetur libero sequi reiciendis tenetur voluptate sed nam eius error nostrum. Facilis, expedita molestias dolores neque obcaecati laboriosam quo.
+    </div>
+    <!--  -->
+    <ul>  
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Carrot</li>
+        <li>Tomator</li>
+    </ul>
+    <ol>  
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Carrot</li>
+        <li>Tomator</li>
+    </ol>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outline</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+        div{
+            width: 300px;
+            height: 150px;
+            background: teal;
+            padding: 15px;
+            margin: 10px;
+            color: aliceblue;
+            font-size: 25px;
+            /* not to have a extra weight or pixels then use box-sizing */
+            border: 2px solid red;
+            outline: 2px solid blue;/* text box outline instead border - less probebility */
+            outline-width: 5px;
+            outline-color: black;
+            outline-style: solid;
+            /* absolute units
+                cm, mm, in, px = 1/96th of 1in, pt, pc
+                relative units
+                em - element  - based on the font size of the element
+                ex - x-height
+                ch - character
+                rem - root element
+                vw - viewport width
+                vh - viewport height
+                vmin - viewport minimum
+                vmax - viewport 
+                
+            */
+                
+        }
+        #b1{
+            box-sizing: content-box;
+        }
+        #b2{
+            box-sizing: border-box;
+            outline-offset: -5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- div defaut value set inside as per window dynamic as view port
+    what is view port - device name -monitor 
+
+    box model-->
+    <div id="b1">SENTHILNATHAN</div>
+    <div id="b2">SENTHILNATHAN</div>
+</body>
+</html>
