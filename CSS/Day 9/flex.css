@@ -1,0 +1,127 @@
+
+/* 
+Flex box
+container properties
+- display
+- flex-direction
+- flex-wrap
+- justify-contents
+- align-items
+- align-contents
+
+inner item properties
+- flex-grow
+- flex-shrink
+- flex-basis
+- flex
+- align-self
+- order
+
+
+*/
+
+
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container{
+    border: 5px solid black;
+}
+
+.flex-item{
+    text-align: center;
+    font-size: 18px;
+    color: wheat;
+    padding: 16px;
+
+}
+
+.Box-1{
+    background-color: #1abc9c;
+}
+
+.Box-2{
+    background-color: #3498db;
+}
+.Box-3{
+    background-color: #2ecc71;
+}
+.Box-4{
+    background-color: #9b59b6;
+}
+.Box-5{
+    background-color: #34495e;
+}
+.Box-6{
+    background-color: #2980b9;
+}
+
+.Box-7{
+    background-color: #e74c3c;
+}
+.Box-8{
+    background-color: #d35400;
+}
+.Box-9{
+    background-color: #2c3e50;
+}
+
+/* ----------------
+flex-direction: row-reverse;
+flex-direction: column-reverse;
+flex-direction: row; - default
+flex-direction: column;
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+flex-wrap: nowrap; - default
+
+flex-flow: <flex-direction> <flex-wrap>
+gap - both x and y axis
+gap : 30px;
+row-gap: 10px;
+columns: 50px;
+
+
+justify-content will work only for row
+Row - Main Axis X
+      Cross Axis Y
+
+      Align items works in cross axis
+column - Main Axis Y
+        Cross Axis X
+
+
+
+justify-content: center;
+justify-content: baseline;
+justify-content: flex-end;
+justify-content: flex-center;
+justify-content: space-around;
+justify-content: space-evenly;
+justify-content: space-between;
+
+align-items: stretch;
+align-items: center;
+align-items: flex-start;
+align-items: flex-end;
+align-items: baseline;
+flex-direction: column;
+align-items: stretch;
+align-items: center;
+align-items: flex-start;
+align-items: flex-end; 
+}
+------------------ */
+
+.container{
+    display: flex; /*row*/
+    width: 600px;
+   
+}
+.big{
+    font-size: 35px;
+}
+/* ------container ------------------- */
