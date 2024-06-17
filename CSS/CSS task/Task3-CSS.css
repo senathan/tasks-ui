@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display",sans-serif;
+}
+
+:root{
+    --bg-color: #f1f1f1;
+    --white: #fff;
+    --active: #8d0a8d;
+    --hover: #555;
+    --text: #000;
+}
+
+aside {
+    width: 200px;
+    background-color: var(--bg-color);
+    position: fixed;
+    height: 100vh;
+}
+
+aside ul {
+    list-style: none;
+    width: 100%;
+}
+
+aside ul li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--text);
+    transition: 0.5s;/* smooth movement */ 
+}
+
+aside ul li a.active{
+    background-color: var(--active);
+    color: var(--white);
+}
+
+aside ul li a:hover:not(.active){
+    background-color: var(--hover);
+    color: var(--white);
+}
+
+main {
+    width: 75%;
+    min-height: 200vh;
+    margin-left: 200px;
+    padding: 20px;
+}
+
+main p{
+    margin: 20px 0;
+    line-height: 25px;
+}

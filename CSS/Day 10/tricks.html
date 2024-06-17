@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tricks</title>
+    <style>
+        .container{
+            width: 1000px;
+            height: 150x;
+            background-color: lightblue;
+            display: flex;
+            /* align-items: center; */
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 0 10px;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+        }
+
+        /* .container .box:nth-child(1){
+            background-color: brown;
+            flex: 1;
+        } */
+
+        /* .container .box:nth-child(1){
+            background-color: brown;
+            margin-right: auto;
+        } */
+
+        .container .box:nth-child(3){
+            background-color: brown;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

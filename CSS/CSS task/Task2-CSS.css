@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display",sans-serif;
+}
+
+:root{
+    --bg-color: lightblue;
+    --white: #fff;
+    --active: #8d0a8d;
+    --dark: #333;
+    --text: #000;
+}
+
+body{
+    background-color: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    width: 700px;
+    height: 500px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgb(0, 0, 0.1);
+}
+
+.info{
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding-left: 15px;
+}
+
+.info h1{
+    color: var(--active);
+}
+.info h3{
+    color: var(--text);
+    opacity: 60%;
+    font-size: x-small;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.amount{
+    display: block;
+}
+
+.amount label{
+    font-weight: 700;
+    font-size: x-large;
+    color: var(--active);
+    margin-left: 30px;
+    margin-right: 55px;
+}
+
+.btn{
+    background-color: #8d0a8d;
+    padding: 10px 60px;
+    color: white;
+    border: 2px solid #8d0a8d;
+    cursor: pointer;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 10px 10px;
+    transition: 0.5s;
+    z-index: 1;
+    border-radius: 50px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+
+.btn:before{
+    content: "";
+    position: absolute;
+    background: #F78100;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+    z-index: -1;
+    top: 100%;
+    left: 100%;
+    transition: 0.7s;
+}
+
+.btn:hover{
+    color: #fff;
+}
+
+.btn:hover::before{
+    top: -30%;
+    left: -30%;
+}
+
+.btn:active::before{
+    transition: 0s;
+    background-color: #8d0a8d;
+}
