@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display",sans-serif;
+}
+
+:root{
+    --bg-color: #333;
+    --white: #fff;
+    --active: #8d0a8d;
+    --hover: #111;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav ul{
+    list-style-type: none;
+    background-color: var(--bg-color);
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: block; /*by default <a> is inline element, modified to block element. */
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+nav ul li a.active{
+    background-color: var(--active);
+}
+
+nav ul li a:hover:not(.active){ /*selects non-active elements */
+    background-color: var(--hover);
+}

@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display",sans-serif;
+}
+
+:root{
+    --bg-color: #67be4b;
+    --white: #fff;
+    --active: #8d0a8d;
+    --dark: #00b242;
+    --text: #f2f2f2;
+}
+
+body{
+    width: 50vw;
+    height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 'Navigation Navigation Navigation'
+    'Header Header Header'
+    'Sidebar Main Main'
+    'Aside1 Aside2 Aside3'
+    'Footer Footer Footer';
+    grid-template-rows: 50px 200px 1fr 200px 50px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.Navigation,
+.Header,
+.Sidebar,
+.Main,
+.Aside1,
+.Aside2,
+.Aside3,
+.Footer {
+    background-color: orangered;
+    padding: 20px;
+    color: var(--white);
+    border: 1px solid white;
+}
+
+.Navigation{
+    grid-area: Navigation;
+}
+
+.Header{
+    grid-area: Header;
+}
+.Sidebar{
+    grid-area: Sidebar;
+}
+.Main{
+    grid-area: Main;
+}
+.Aside1{
+    grid-area: Aside1;
+}
+.Aside2{
+    grid-area: Aside2;
+}
+.Aside3{
+    grid-area: Aside3;
+}
+.Footer{
+    grid-area: Footer;
+}
+
+/* 
+Grid box
+container properties
+- display
+- grid-direction
+- column-gap
+- row-gap
+- justify-items
+- align-items
+- align-content
+- place-items
+
+
+grid-template-columns: 100px 200px 300px 500px;
+grid-template-columns: 200px 200px 200px 200px;
+grid-template-columns: repeat(3, 200px) 300px;
+grid-template-columns: repeat(3, 1fr); 
+grid-template-columns: 2fr 2fr 3fr;
+grid-template-columns: repeat(3, minmax(200px,1fr)); 
+grid-template-rows: 100px;
+grid-template-rows: 100px 200px;
+grid-template: 100px 200px/ repeat(3, 1fr);
+column-gap: 20px;
+row-gap: 20px;
+gap: 20px 10px
+justify-items: stretch;
+justify-items: start;
+justify-items: center;
+justify-items: end;
+justify-items: flex-end;
+align-items: stretch;
+align-items: start;
+align-items: center;
+align-items: end;
+place-items: center;
+place-items: start;
+place-items: start end;
+place-items: end start;
+place-items: end end;
+justify-content: stretch; - inner content will be moved.
+justify-content: center; 
+justify-content: space-around;
+justify-content: space-evenly; 
+align-content: center;
+align-content: space-around;
+align-content: space-evenly;
+align-content: end;
+align-content: space-between;
+place-content: start start;
+place-content: end end;
+place-content: start center;
+place-content: center;
+place-content: space-around  center;
+place-content: end space-around;
+grid-auto-flow: row;
+grid-auto-rows: 20px;
+grid-auto-flow: column;
+grid-auto-columns: 20px;
+
+
+Grid box
+item properties
+
+grid-column-start: 1;
+grid-column-end: 3; 
+grid-column: 1/span 3;
+grid-row: 1/span 2;
+place-self: 10px 100px;
+grid-column: 1/span 3;
+grid-row: 1/span 2;
+justify-self: center;
+justify-self: end;
+align-self: start;
+place-self: start start; 
+
+*/
+
+.container{
+    border: 5px solid black;
+    display: grid;
+    height: 800px;
+    width: 800px;
+    grid-template: repeat(3, 200px)/ repeat(3, 200px);
+    
+    /* grid-template-columns: 200px 200px 200px 200px; */
+    /* grid-template-columns: repeat(3, 200px) 300px; */
+    /* grid-template-columns: repeat(3, 1fr); size defined based on the screen size */
+    /* grid-template-columns: 2fr 2fr 3fr; */
+    /* grid-template-columns: repeat(3, minmax(200px,1fr)); min max - */
+
+}
+
+.grid-item{
+    text-align: center;
+    font-size: 18px;
+    color: wheat;
+    padding: 16px;
+}
+
+.Box-1{
+    background-color: #1abc9c;
+}
+
+.Box-2{
+    /* grid-row-start: 9;
+    grid-row-end: span 1; */
+    background-color: #3498db;
+}
+.Box-3{
+    background-color: #2ecc71;
+}
+.Box-4{
+    background-color: #9b59b6;
+}
+.Box-5{
+    background-color: #34495e;
+}
+.Box-6{
+    background-color: #2980b9;
+}
+
+.Box-7{
+    background-color: #e74c3c;
+}
+.Box-8{
+    background-color: #d35400;
+}
+.Box-9{
+    background-color: #2c3e50;
+}
