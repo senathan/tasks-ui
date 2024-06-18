@@ -41,7 +41,8 @@ header h1{
     padding: 20px 10px;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
+    align-content: flex-start;
     gap: 16px;
     min-height: 100vh;
     max-width: 1200px;
