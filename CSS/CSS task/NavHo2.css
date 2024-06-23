@@ -22,7 +22,7 @@ body{
 header{
     display: flex;
     background-color:   #333;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 100vw;
     padding: 15px 10%;
@@ -34,7 +34,7 @@ header{
     font-size: 18px;
     font-weight: 500;
     text-transform: capitalize;
-
+    margin-right: auto;
 }
 .navbar{
     list-style: none;

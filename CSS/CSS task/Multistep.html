@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiStep</title>
+    <link rel="stylesheet" href="style-multistep.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="step-indicators">
+            <div class="step">
+                <button class="active">1</button>
+                <label for="">Sign Up</label>
+            </div>
+            <div class="step"><button>2</button>
+                <label for="">Message</label>
+            </div>
+            <div class="step"><button>3</button>
+                <label for="">Confirm</label>
+            </div>
+        </div>
+        <hr class="divider">
+        <div field_container>
+            <div>
+                <label for="">First name</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Andrio">
+            </div>
+            <div>
+                <label for="">Last name</label>
+                <input type="text" name="lastName" id="lastName" placeholder="Dolee">
+            </div>
+        </div>
+        <div field_container>
+            <div>
+                <label for="">Date of Birth</label>
+                <input type="date" name="dob" id="dob" placeholder="dd-mm-yyyy">
+            </div>
+            <div>
+                <label for="">Email Address</label>
+                <input type="text" name="email" id="email" placeholder="example@mail.com">
+            </div>
+        </div>
+        <div field_container>
+            <div>
+                <label for="">Address</label>
+                <input type="text" name="streetAddress1" class="streetAddress1"
+                    placeholder="Flat 4, 24 Castle Street, Perth, PH1 3JY">
+            </div>
+        </div>
+
+        <button class="btn" type="submit">Next Step -></button>
+    </div>
+</body>
+
+</html>

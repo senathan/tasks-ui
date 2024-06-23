@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+:root{
+    --bg-color: #2d3436;
+    --white: #fff;
+    --active: #8d0a8d;
+    --hover: #55efc4;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.content{
+    padding: 30px;
+}
+
+.content p{
+    margin: 20px 0;
+    line-height: 25px;
+}
+.content h2{
+    font-weight: bolder;
+}
+
+nav{
+    width: 100vw;
+    height: 10%;
+    background-color: var(--bg-color);
+    text-decoration: none;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+}
+
+
+nav ul li{
+   list-style-type: none;
+   float: left;
+}
+
+.nav-item{
+    display: inline-block;
+    color: var(--white);
+    line-height: 40px;
+    text-decoration: none;
+    height: 40px;
+    padding: 15px 30px;
+}
+
+.nav-item:hover{
+    background-color: var(--hover);
+    transition: 0.5s;
+}
+
+.name{
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.name:hover{
+    color: var(--hover);
+    transition: 0.5s;
+}
+
+.navbarcontent{
+    position: absolute;
+    top 70px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+    min-width: 200px;
+    min-height: 0;
+}
+
+.navbarcontent a{
+    text-decoration: none;
+    color: white;
+}
+
+.submenu ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu ul li a{
+    display: block;
+    width: 100%;
+    padding: 10px 10px 10px 20px;
+    transition: 0.5s;
+}
+
+.nav-item:focus{
+    background-color: var(--hover);
+} 
+
+.nav-item:focus ~ .navbarcontent{
+    /* max-height: 400px; */
+    /* transition: max-height 0.4s ease-in; */
+} 
