@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinner</title>
+    <!-- <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: beige;
+        }
+
+        .spinner{
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            border: 3px solid rgb(255, 255, 255, 0.3);
+            border-top-color: rgb(255, 255, 255);
+            border-radius: 50%;
+            animation-name: spinner;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            animation: spinner 2s ease-in-out infinite;
+        }
+
+        @keyframes spinner {
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style> -->
+<style>
+.spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #3498db;
+  border-color: #3498db transparent #3498db transparent;
+  animation: ring 1.2s linear infinite;
+}
+@keyframes ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+</head>
+<body>
+    <div class="spinner">
+
+    </div>
+    <div class="ring"></div>
+</body>
+</html>
