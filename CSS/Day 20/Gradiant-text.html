@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Gradiant</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lobster', sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            background-color: #222;
+            /* background: linear-gradient(90deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            font-size: 200px;
+            color: transparent;
+            background-color: azure;
+            background-size: 500px 500px;
+            background-clip: text;
+            background-image: linear-gradient(90deg, hsla(48, 78%, 82%, 1) 0%, hsla(340, 87%, 59%, 1) 100%);
+            animation: anime 2s ease infinite;
+        }
+        @keyframes anime {
+            0%{
+                background-position: 0%;
+            }
+            50%{
+                background-position: 100%;
+            }
+            100%{
+                background-position: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>SENTHILNATHANS</h1>
+</body>
+</html>

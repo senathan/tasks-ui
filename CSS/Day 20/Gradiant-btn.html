@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Gradiant</title>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            min-height: 100vh;
+            background-color: #333;
+            /* background: linear-gradient(90deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%); */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        button{
+            padding: 1rem 2rem;
+            font-size: 19px;
+            background-color: #5cb270;
+            border: none;
+            color: #fff;
+            border-radius: 1000px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.5s;
+        }
+/* 
+Z index - book index kind to have last value
+
+default value - 0
+*/
+        button::after{
+            content: "";
+            position: absolute;
+            width: 102%;
+            height: 107%;
+            background-color: red;
+            border-radius: 1000px;
+            z-index: -1;
+            
+            background: linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+        }
+
+        button:hover{
+            z-index: 0;
+            box-shadow: 40px 0 100px  hsla(59, 86%, 68%, 1);
+        }
+    </style>
+</head>
+<body>
+    <button>Gradiant</button>
+</body>
+</html>
