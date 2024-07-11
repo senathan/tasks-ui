@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Process Flow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="path_to_your_company_logo.png" alt="Company Logo">
+    </div>
+    <!-- Nav bar start -->
+    <div class="nav-btn ">
+        <label for="nav-check">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+            </svg>
+        </label>
+    </div>
+    <input type="checkbox" id="nav-check">
+    <nav class="navbar">
+        <div class="navbar-header">
+            <span class="nav-close">
+                <label for="nav-check">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#5f6368">
+                        <path
+                            d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                    </svg>
+                </label>
+            </span>
+        </div>
+        <ul class="nav-items">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#evergreen" class="nav-link">Evergreen Component</a></li>
+            <li><a href="#challenges" class="nav-link">Challenges & Future Plans</a></li>
+            <li><a href="#process" class="nav-link">Process</a></li>
+        </ul>
+    </nav>
+    <div id="evergreen" class="section">
+        <h2>Evergreen Component</h2>
+        <div class="image-container">
+          <img src="1.png" alt="Evergreen Component Diagram">
+        </div>
+      </div>
+    <div id="challenges" class="section">
+        <h2>Challenges & Future Plans</h2>
+        <p>Information about challenges faced and future plans for component expansion in Gen AI.</p>
+    </div>
+    <div id="process" class="section">
+        <h2>ATM: Deployment Process</h2>
+        <div class="timeline">
+            <div class="timeline-section">
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-cogs"></i></div>
+                <div class="timeline-content">
+                  <h3>Application Evergreen Component</h3>
+                  <p>Application evergreen component is setup as a batch process in a scheduled manner.</p>
+                  <p>For every run, it creates a PR to the respective repo in stash. If no changes, JIRA will be updated with comments.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-search"></i></div>
+                <div class="timeline-content">
+                  <h3>Identify Vulnerabilities</h3>
+                  <p>Developer/Lead SME gets Prisma/Veracode/any analysis tool report as an input and identifies the vulnerabilities to be fixed.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-check"></i></div>
+                <div class="timeline-content">
+                  <h3>Validate PR</h3>
+                  <p>Developer validates the PR generated. If the PR is not recently created, the developer manually triggers the Application evergreen component and gets the new changes. If satisfied with the dev testing, proceed.</p>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-section">
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-users"></i></div>
+                <div class="timeline-content">
+                  <h3>Review and Approve PR</h3>
+                  <p>Development team members review and approve the PR.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-code-branch"></i></div>
+                <div class="timeline-content">
+                  <h3>Create Release Cut</h3>
+                  <p>Post-approval, the developer creates a release cut from the develop branch.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fab fa-jenkins"></i></div>
+                <div class="timeline-content">
+                  <h3>Deploy to UAT & Prod</h3>
+                  <p>The release tag is deployed to lower and prod regions via Jenkins/DTP pipeline.</p>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-section">
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-bullhorn"></i></div>
+                <div class="timeline-content">
+                  <h3>Notify Testing Team</h3>
+                  <p>Notify the testing team about the UAT deployment. If no issues are encountered, plan the production release.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-clipboard-list"></i></div>
+                <div class="timeline-content">
+                  <h3>Monitor Logs</h3>
+                  <p>Monitor logs for a week to ensure no issues arise.</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-icon"><i class="fas fa-tools"></i></div>
+                <div class="timeline-content">
+                  <h3>Manual Fix Details</h3>
+                  <p>The legacy dependency 'namea' requires manual intervention to update due to its complexity. The fix will be implemented in the feature branch 'fix/legacy-dependency-namea' and will be deployed in the next scheduled release.</p>
+                </div>
+              </div>
+            </div>
+    </div>
+</body>
+
+</html>
