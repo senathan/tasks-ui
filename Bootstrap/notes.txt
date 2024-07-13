@@ -1,0 +1,39 @@
+5.3 new verion
+
+card -design
+bootstrap with our own design
+themes- mizzle- responsive 
+
+Day1
+
+bootstrap.css
+bootstrap.min.css - unformatted - minified version - compress file size
+
+
+online - css minifier - compress file into small size.
+
+Sass: Syntactically Awesome Style Sheets
+
+CDN - content delivery network - wihout CDN then you have to access file from server
+
+Copy of files will be saved in server
+Copy content will be loaded easily. 
+
+browser cache - cookies stored
+
+Founded by two developers from twitters
+- concept- mobile based responsive framework
+- tailwind.css 
+
+Breakpoint	Class infix	Dimensions
+Extra small	None	<576px
+Small	sm	        ≥576px
+Medium	md	        ≥768px
+Large	lg	        ≥992px
+Extra large	xl	    ≥1200px
+Extra extra large	xxl	≥1400px
+
+grid concept
+each row 12 column concept.
+
+col-md-1

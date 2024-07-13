@@ -256,3 +256,9 @@ body {
   .image-container:hover {
     width: 100%;
   }
+
+  .timeline-arrow {
+    font-size: 24px;
+    color: #fff;
+    margin: 0 15px;
+  }
