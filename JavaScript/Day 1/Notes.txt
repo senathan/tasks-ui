@@ -1,0 +1,30 @@
+Low level programming - writing in machine 
+High level programming - how you talk can be programmed C, C++  , java python
+
+Primarly focused on web development
+ - dynamic content and user interation
+
+
+History - mocha is a coffee variant, then got changed to livescript 1995 then they changed to JavaSript
+
+both are different - DB we use them ex - mongodb
+
+Key features:
+ISO standard lile ECMA standard lot of versions - client side scripting.
+Interepurted programming - if you use other we will compile but for this will execute directly.
+dynamic typing - variables defined at runtime.
+
+Common use cases:
+ form validation
+ dom manipulation - changes in browser at runtime
+ async operations
+ animations and effects
+
+
+ ECMA 1 - 1997
+
+ ECMA 6 is very famous
+
+
+ Arthimetic operators
+ 
