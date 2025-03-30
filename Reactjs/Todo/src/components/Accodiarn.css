@@ -1,0 +1,43 @@
+.property-header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .tree-node {
+    margin-left: 20px;
+  }
+  
+  .tree-node__label {
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .behavior-details, .criteria-details {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }
+
+  .app-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .property-header {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  .tree-node {
+    margin-left: 20px;
+  }
+  
+  .behavior-details, .criteria-details {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }

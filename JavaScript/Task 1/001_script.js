@@ -18,7 +18,7 @@ console.log('Gross Salary                       :',gs);
 
 // Task2
 city1=250
-city2=350
+city2=350 
 
 k=city2-city1
 

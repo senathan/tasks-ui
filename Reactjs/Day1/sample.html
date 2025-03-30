@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded",
+            function(){
+                function homepage(){
+                const div = document.createElement("div");
+                const h3 = document.createElement("h3");
+                const p = document.createElement("p");
+                h3.textContent = 'Home Page';
+                p.textContent = 'Text content test';
+                div.appendChild(h3);
+                div.appendChild(p);
+                return div;
+                }
+                function aboutpage(){
+                const div = document.createElement("div");
+                const h3 = document.createElement("h3");
+                const p = document.createElement("p");
+                h3.textContent = 'About Page';
+                p.textContent = 'About content test';
+                div.appendChild(h3);
+                div.appendChild(p);
+                return div;
+                }
+             document.getElementById("root").appendChild(aboutpage());
+            }
+        )
+    </script>
+</body>
+</html>

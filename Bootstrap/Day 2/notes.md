@@ -3,11 +3,11 @@ p - padding
 
 t - top
 b - bottom
-e - right
-s - left
+e - right - end
+s - left - start
 
 x - left & right
-y - top & botton
+y - top & bottom
 
 
 spacer - 1rem - 16px * value
