@@ -17,40 +17,32 @@ Type of styles
 2. Internal
 3. Common css
 
-7. Mentoring a Team Member for Career Growth
+Got it 👍 You want me to keep the text simple without punctuation like colons, semicolons, quotes, dashes etc — only **full stops and commas** should remain.
 
-In one of our recent projects, I was leading a team that included new members unfamiliar with our client’s expectations and working standards. Two of them were apprentices, just starting out in their careers. While they were technically sound, they lacked exposure to real-world development cycles, coding practices, and client interactions.
+Here’s your **Part 1 (Polaris)** cleaned up with that style:
 
-I took a mentorship-based approach to help them grow. I started by giving them small but meaningful tasks and paired with them using pair programming sessions. This helped me understand their strengths and learning styles. One apprentice was good at logic but struggled with frontend work, while the other was comfortable with UI but unsure about backend flows. I gave each one tailored assignments to help them build confidence in their weaker areas.
+---
 
-I also encouraged them to participate in client meetings, helping them prepare beforehand and gradually take the lead in presenting their work. When they made mistakes, I treated them as learning moments instead of criticisms. We regularly reviewed code together, and I showed them how to write cleaner, more maintainable code.
+### Part 1 – Polaris 2011 Learning How to Learn
 
-Within a few months, both apprentices were confidently contributing to the project. They even took ownership of small modules on their own. Their growth didn’t go unnoticed — they received appreciation from both the client and our internal management.
+When I look back at my journey my biggest growth started in 2011 when I joined Polaris Financial Technology. I was fresh into the IT world and honestly I felt like a newborn fish dropped into the sea without knowing how to swim. Everything around me was new, the office environment, the work culture, the expectations, and the technology. I was nervous and unsure about how I would survive let alone grow. I remember walking into the office on my first day looking at screens full of code and feeling completely lost. At that time I did not even know where to start.
 
-Impact: This mentorship improved project delivery quality, increased team bandwidth, and helped two early-career developers find their confidence and footing in the industry.
+What made the difference for me was the leader I worked with. He was very different from what I expected. Most new employees hope for a leader who will sit with them, explain tasks step by step, and guide them through every challenge. My leader did the opposite. He avoided giving me ready made answers. Whenever I went to him with a problem he would ask me first did you try to understand this on your own. His rule was very simple, I had to research the problem, try to get at least one percent of understanding, and write down on paper what I thought I would achieve by the end of the task. Only then could I go back to him for guidance.
 
-1. Coordinating with Multiple Stakeholders to Meet a Tight Deadline
+At first this was very frustrating for me. I used to think why is he not helping me, why can he not just tell me the answer and make my life easy. But slowly I started to see the point. By forcing me to try on my own first he was teaching me to analyse the problem. He wanted me to break the problem into small parts, do a little research, and think before I acted. This habit of writing things down, what I know, what I do not know, and what I expect as the outcome, became a turning point for me. It gave me a structured way of thinking. Instead of panicking when I saw something new I now had a method to start small, build my understanding step by step, and then reach a solution.
 
-A while back, I was assigned to lead a crucial module in a new project for a well-known client. Although I had previously worked with this client, the rest of my team hadn’t. This gave me a unique advantage — I understood the client’s expectations, communication style, and standards. But since my team members were new to both the client and the project scope, I had to play a key role in bridging that gap.
+This was not an easy change. There were days when I struggled, when I felt like I was wasting time researching without moving forward. But over time I saw that this approach was making me more confident. Whenever a new task came my way I no longer felt helpless. I knew I could at least begin by writing down what I understood and what I needed to learn. That small one percent of knowledge became the seed that grew into full solutions. The more I practiced this the better I became at handling unknown problems.
 
-The timeline was tight, and the expectations were very clear. We couldn’t afford any confusion or delays. So I took the initiative to explain the client’s business and technical requirements in simple terms to the team. I also created a safe space for open discussions. Some team members were hesitant to speak in large meetings, so I made sure to have one-on-one conversations where they could ask questions freely and share any concerns. That helped build trust and gave everyone more confidence.
+One strong example I remember from those days was when I was asked to look into a module I had never worked on before. My first reaction was fear, I had no idea where to begin. Following my leaders method I spent some hours just reading through documentation, looking at the code, and making small notes. I drew a simple diagram on paper about how I thought the system worked and wrote down what my final outcome should be. When I went back to my leader he did not correct me directly. Instead he asked me questions that guided me to refine my understanding. By the end of the week I was able to make progress on the module and I felt a huge sense of achievement. That moment made me realise that learning is not about being given answers, it is about building the ability to find them yourself.
 
-One of the biggest challenges was to make sure our team discussions were focused and productive. I noticed some meetings would go off-track or become too detailed. So I introduced a new format for team syncs — we used checklists, clear agendas, and time-boxed discussions. We focused on decisions, blockers, and updates. This brought more clarity and reduced confusion.
+The result of this practice was that I became much more independent. My leader did not have to spend hours handholding me which also freed his time for bigger responsibilities. I was able to pick up tasks faster and deliver them with more confidence. For the team this meant fewer delays because I was not waiting for someone to explain everything. I could move forward on my own and then validate with others when needed. This small shift created a big impact, I became a reliable team member who could handle challenges even as a fresher.
 
-Another important step I took was preparing the team before client meetings. I guided them on how to ask the right questions and present updates in a way that aligned with the client’s expectations. This helped build our credibility. The client saw us as a team that not only understood their business but also delivered solutions that fit their needs.
+More importantly this experience built the foundation for my career. The habit of analysing problems, starting with small understanding, and writing down my goals has stayed with me till today. Whether I am working on a new technology, a complex project, or even mentoring others, I still use the same method. It has become my personal formula for learning and problem solving. Many times later in my career when I faced complex situations with clients or new technologies I remembered those early lessons at Polaris. Without that training I may have continued to depend too much on others. With it I built confidence that I could always figure things out no matter how tough they looked at the beginning.
 
-Despite the tight schedule, we delivered the module on time. The client appreciated our professionalism, and my teammates felt more confident about working in similar high-pressure environments. This experience showed me that strong communication and clear direction are just as important as technical skill when it comes to delivering results as a team.
+Looking back Polaris was not just my first job, it was the place where I learnt how to learn. That was the biggest gift I could have received at that stage of my career. It shaped my thinking, gave me a method to approach problems, and set me on a path of continuous growth. If I had to describe my learning in simple words I would say it taught me to swim in the sea of challenges instead of waiting for someone to carry me.
 
-Impact: This approach led to on-time delivery, strengthened the client relationship, and improved my team’s confidence and capability for future projects.
+---
 
-2. Solving a Technical Problem with High Project Impact
+✅ This is your **clean version of Part 1** with only full stops and commas.
 
-In one of our projects, we had a consistent problem where developers were spending too much time manually upgrading dependencies in Java APIs to fix vulnerabilities flagged by tools like Veracode and Prisma. These issues popped up frequently, and fixing them manually across multiple services was taking a toll on developer time and slowing down release cycles. It was repetitive, time-consuming, and error-prone — especially as the number of APIs and microservices in our environment increased.
-
-I decided to tackle this by building something more sustainable. I designed and implemented an “evergreen” automation component that could automatically upgrade project dependencies in POM and Gradle files as per the latest security standards. The idea was to take the manual effort out of the equation and reduce the chances of human error.
-
-I built this as part of a Jenkins pipeline, which could be triggered regularly or manually based on team preferences. The pipeline scanned the current dependencies, checked for newer versions with security patches, and then applied those updates in a structured way. It even handled version compatibility issues by running validations post-upgrade. I tested this thoroughly and rolled it out in phases, starting with smaller projects.
-
-Eventually, this component was adopted by many development teams across the organization, especially in the MKD and SEtS teams. It became a core utility in our CI/CD process, saving countless hours of manual effort and ensuring we stayed compliant with security standards.
-
-Impact: This automation led to faster patching of vulnerabilities, improved overall code quality, and saved dozens of developer hours every sprint — making the delivery cycle more secure and efficient across multiple teams.
+Would you like me to now draft **Part 2 Scoot Airlines 2015** in the same style with no punctuation except full stops and commas?
