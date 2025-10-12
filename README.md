@@ -16,16 +16,18 @@ Type of styles
 1. Inline
 2. Internal
 3. Common css
+4. 
+In modern Java applications, managing dependencies is a critical but often overlooked task.
 
-Handled complex trees by tracing dependencies and managing exclusions smartly.
+I noticed that manual upgrades not only delayed releases but also increased the risk of missing security patches — particularly for Prisma and Veracode vulnerabilities.
 
-Built fallback logic to auto-retry upgrades on version failures with test validation.
+To solve this, I took the initiative to design and implement an Application Evergreening Engine — a component that automates dependency upgrades with minimal manual effort.
 
-Integrated testing hooks to ensure upgrades don’t break application functionality.
+This engine has already been adopted across multiple SETS projects, especially in SDS APIs like ATM, where it runs quarterly and ensures we're always on top of vulnerability fixes.
 
-Flagged legacy issues early using pre-check scripts and documented manual patches.
+Right now, the system is fully integrated into dev and pre-prod environments, and strictly follows BAU governance to ensure that all changes are reviewed and approved before moving to production.
 
-Unified Maven/Gradle logic with auto-detection and shared pipeline scripts.
+The result? A repeatable, scalable, and secure way to keep dependencies fresh, without slowing teams down.
 
 
 " I've been working on, which focuses on automating the upgrade of POM or Gradle dependencies for most of the API’s. As we know, managing and upgrading dependencies can be a time-consuming task, especially as the size and complexity of a project grows. To address this challenge, I've integrated a Jenkins pipeline that seamlessly takes care of these upgrades without any manual intervention.
