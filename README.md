@@ -17,9 +17,15 @@ Type of styles
 2. Internal
 3. Common css
 
-Enabled 80% reduction in manual effort by automating secure, quarterly dependency upgrades.
+Handled complex trees by tracing dependencies and managing exclusions smartly.
 
-Designed a scalable system now driving evergreening across SETS APIs with minimal human intervention.
+Built fallback logic to auto-retry upgrades on version failures with test validation.
+
+Integrated testing hooks to ensure upgrades don’t break application functionality.
+
+Flagged legacy issues early using pre-check scripts and documented manual patches.
+
+Unified Maven/Gradle logic with auto-detection and shared pipeline scripts.
 
 
 " I've been working on, which focuses on automating the upgrade of POM or Gradle dependencies for most of the API’s. As we know, managing and upgrading dependencies can be a time-consuming task, especially as the size and complexity of a project grows. To address this challenge, I've integrated a Jenkins pipeline that seamlessly takes care of these upgrades without any manual intervention.
