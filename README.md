@@ -17,17 +17,11 @@ Type of styles
 2. Internal
 3. Common css
 4. 
-In modern Java applications, managing dependencies is a critical but often overlooked task.
+I’m proud to say that I started my career as a Java Developer, and over the years, I’ve grown into a Security-Focused Lead Developer and individual contributor who continues to stay hands-on with technology. My journey has been shaped by curiosity, learning, and ownership — from writing my first lines of Java code to designing and delivering 15 applications from scratch for Scoot Airlines (Singapore Airlines group) during my onsite tenure.
 
-I noticed that manual upgrades not only delayed releases but also increased the risk of missing security patches — particularly for Prisma and Veracode vulnerabilities.
+With 12+ years of experience, I’ve had the opportunity to build and secure enterprise-grade applications using Java, Spring Boot, AWS, Kafka, and React. I take pride in bridging development and security by implementing secure coding practices, automating certificate management, and building strong foundations for cloud-native systems.
 
-To solve this, I took the initiative to design and implement an Application Evergreening Engine — a component that automates dependency upgrades with minimal manual effort.
-
-This engine has already been adopted across multiple SETS projects, especially in SDS APIs like ATM, where it runs quarterly and ensures we're always on top of vulnerability fixes.
-
-Right now, the system is fully integrated into dev and pre-prod environments, and strictly follows BAU governance to ensure that all changes are reviewed and approved before moving to production.
-
-The result? A repeatable, scalable, and secure way to keep dependencies fresh, without slowing teams down.
+Currently, as a Lead Security Developer, I focus on designing secure frameworks, mentoring teams, and contributing to organization-wide initiatives that strengthen application security.
 
 
 " I've been working on, which focuses on automating the upgrade of POM or Gradle dependencies for most of the API’s. As we know, managing and upgrading dependencies can be a time-consuming task, especially as the size and complexity of a project grows. To address this challenge, I've integrated a Jenkins pipeline that seamlessly takes care of these upgrades without any manual intervention.
