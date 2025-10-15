@@ -57,3 +57,122 @@ Future Plans: Right now, our SETS development team is using this system. To impr
 These steps will help us create a more reliable and efficient system, reducing the need for manual work and increasing productivity.
 
 Thank you for listening, and I'm open to any questions or feedback you might have!"`
+
+
+Perfect 👍 Here’s your **5-minute talk** rewritten in **simple, natural English**, just like how an experienced Indian engineer would confidently speak to a large group.
+I’ve kept it conversational, clear, and easy to remember — with **timing cues (~40 sec per slide)** and **speaker-style tips** for natural delivery.
+
+---
+
+## 🎤 5-Minute Talk Script (Simple English, Natural Flow)
+
+---
+
+### **Slide 1 – My Journey (0:00 – 0:40)**
+
+**(Smile and start warmly)**
+Hi everyone, good afternoon! I’m [Your Name]. I started my career as a Java Developer, and over the years, I’ve grown into a Security-Focused Lead Developer who still loves to stay hands-on with technology.
+
+My journey has been all about curiosity, learning, and ownership. During my onsite time with Scoot Airlines — which is part of Singapore Airlines — I got the chance to design and deliver more than 15 applications from scratch.
+
+With around 12 years of experience now, I’ve worked across Java, Spring Boot, AWS, Kafka, and React. My main focus is building secure, cloud-ready applications and bridging the gap between **development and security**.
+
+*(Tip: Speak calmly, with pride in your voice.)*
+
+---
+
+### **Slide 2 – The Problem (0:40 – 1:20)**
+
+In modern Java projects, we use a lot of open-source libraries and dependencies.
+But one issue I kept seeing was — **dependency upgrades were always manual**.
+
+Teams used to spend hours checking versions, updating POM files, and testing — and still, many security patches were missed.
+
+This not only delayed releases but also left systems exposed to known vulnerabilities, especially those flagged by tools like **Prisma** or **Veracode**.
+
+So, I thought — instead of chasing versions manually every quarter, why not automate this entire process? That’s how the idea of **Application Evergreening Engine** started.
+
+*(Tip: Use hand gestures here — “manual” vs “automate” for emphasis.)*
+
+---
+
+### **Slide 3 – The Solution (1:20 – 2:00)**
+
+The **Application Evergreening Engine** is basically an automated pipeline that handles dependency upgrades end-to-end.
+
+It automatically checks which libraries are outdated, upgrades them safely, and creates pull requests — all with almost no manual effort.
+
+This solution has now been adopted in multiple SETS projects, especially in **SDS APIs like ATM**, where it runs quarterly.
+It follows our BAU process strictly — so every change is properly reviewed and approved before going to production.
+
+*(Tip: Slightly raise your tone on “automated pipeline” and “adopted across projects.”)*
+
+---
+
+### **Slide 4 – Benefits and Focus (2:00 – 2:40)**
+
+This engine brings three clear benefits:
+
+1. **Security** – It makes sure we’re always on the latest, secure versions.
+2. **Performance** – We get better optimizations and stability from newer libraries.
+3. **Features** – Teams get access to the latest framework capabilities faster.
+
+It’s mainly focused on **Java and Spring Boot** applications — handling both parent and child dependencies across **Maven and Gradle**.
+
+*(Tip: Count on your fingers as you list the three benefits — keeps it engaging.)*
+
+---
+
+### **Slide 5 – Prerequisites (2:40 – 3:10)**
+
+Before the upgrade starts, there are a few simple inputs we provide to the Jenkins job:
+
+* The branch name and repo name,
+* Whether the project uses Maven or Gradle,
+* The Jira ticket link,
+* And if there are any dependencies to exclude or treat commonly.
+
+Once these are given, the job runs automatically like a batch process — no need for any manual push.
+
+*(Tip: Speak this part steadily; it’s more technical.)*
+
+---
+
+### **Slide 6 – How It Works (3:10 – 4:10)**
+
+Now, here’s how it works step by step:
+
+1. It checks out the repo from the inputs.
+2. It creates a **Jira ticket** for tracking.
+3. A new **branch** is created automatically.
+4. Then a set of scripts run to identify outdated dependencies.
+
+   * It upgrades Spring Boot parent versions,
+   * Skips excluded dependencies,
+   * Handles common ones, and
+   * Upgrades everything else safely.
+5. Finally, if any updates are made, it raises a **Pull Request**. If nothing needs updating, it just comments on Jira saying “No upgrades found.”
+
+This whole process is smooth, fully traceable, and much faster than doing it manually.
+
+*(Tip: Keep this part slightly faster-paced; sound confident when listing the steps.)*
+
+---
+
+### **Slide 7 – Impact and Closing (4:10 – 5:00)**
+
+What I really like about this project is the **impact**.
+
+Earlier, teams were spending 1–2 days doing manual upgrades. Now, it’s reduced by almost **80%** — and security vulnerabilities are being fixed much sooner.
+
+It’s now a shared service that different teams use, and it’s creating a culture of **security-first automation**.
+
+To sum up, this Evergreening Engine has made dependency management **automatic, safe, and transparent**. It saves developer time, keeps our systems secure, and ensures we’re always ready for future upgrades.
+
+Thank you.
+
+*(Tip: End with a confident smile, slight nod, and pause for 2 seconds before stepping back.)*
+
+---
+
+Would you like me to make a **short 5-line summary** version too — so you can memorize or use it for the Q&A after your talk (in case someone asks “Can you summarize your project in a few lines?”)?
