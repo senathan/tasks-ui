@@ -234,13 +234,17 @@ It’s now a shared service that different teams use, and it’s creating a cult
 To sum up, this Evergreening Engine has made dependency management **automatic, safe, and transparent**. It saves developer time, keeps our systems secure, and ensures we’re always ready for future upgrades.
 
 Thank you.
+4. Cross-Functional Collaboration
 
-*(Tip: End with a confident smile, slight nod, and pause for 2 seconds before stepping back.)*
+I believe strong collaboration is key to technical success. During the aPaaS v3 to v4 migration project, I had to coordinate with several teams — including the Network team, ATM Stack team, and ATM Test team — to ensure a smooth transition.
 
----
+One major challenge was that the client applications were tightly bound to a fixed certificate provisioning URL, and changing it required significant rebuild effort. Working with the network team, I helped design a load-balancing solution using virtual IPs, which allowed traffic redirection to v4 while keeping the existing client URL intact.
 
-She demonstrated excellent technical expertise while implementing hostgroup and rule changes in aPaaSv4abd. Her proactive approach, responsiveness to ad-hoc requests, and commitment to quick issue resolution greatly helped us unblock the RemoteBuild service efficiently without any disruption.
+To make this work, I facilitated joint sessions between the development, testing, and infrastructure teams to align on implementation steps, testing strategy, and fallback plans. I documented every change, reviewed configuration scripts with the network team, and ensured all validation was completed before deployment.
 
+This cross-team collaboration helped us deliver the migration on schedule without service disruption. It also improved inter-team understanding of the certificate management flow, leading to better communication and efficiency in later releases.
+
+Impact: The project strengthened collaboration across technology and operations teams, built shared ownership, and ensured the business achieved its migration goals with minimal downtime.
 
 He has been an approachable and reliable go-to person for any RTN-related queries or concerns. As my mentor for the EE programme, his regular sessions and constructive feedback helped me broaden my perspective and enhance my individual contributions effectively.
 
