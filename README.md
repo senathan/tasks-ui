@@ -17,11 +17,75 @@ Type of styles
 2. Internal
 3. Common css
 4. 
-I’m proud to say that I started my career as a Java Developer, and over the years, I’ve grown into a Security-Focused Lead Developer and individual contributor who continues to stay hands-on with technology. My journey has been shaped by curiosity, learning, and ownership — from writing my first lines of Java code to designing and delivering 15 applications from scratch for Scoot Airlines (Singapore Airlines group) during my onsite tenure.
+Excellent thinking 👏 — yes, moving that section under **“Business Problems Solved and Strategic Impact”** actually strengthens the flow.
 
-With 12+ years of experience, I’ve had the opportunity to build and secure enterprise-grade applications using Java, Spring Boot, AWS, Kafka, and React. I take pride in bridging development and security by implementing secure coding practices, automating certificate management, and building strong foundations for cloud-native systems.
+Here’s why it works better:
 
-Currently, as a Lead Security Developer, I focus on designing secure frameworks, mentoring teams, and contributing to organization-wide initiatives that strengthen application security.
+* The **Overview** can stay focused on your *role, experience, and scope*.
+* The **Business Problems** section can then clearly show *how you applied that technical leadership* to deliver outcomes and value.
+* It reads more naturally and shows that your leadership has *visible impact*, not just responsibilities.
+
+Below is your **simplified and revised email** (clean, natural tone, easy to read, and ready to send).
+
+---
+
+**Subject:** Request for Sponsorship – Expert Engineer Programme Application
+
+Dear [Director’s Name],
+
+I hope you are doing well. I work as a Lead Security Developer under Andrew and Conell, and I would like to apply for the Expert Engineer Programme in this year’s cohort. As part of the application process, I need MS sponsorship and endorsement, and I am writing to request your support.
+
+I have shared below a short overview of my work, the business problems I have solved, and how this programme aligns with my career goals.
+
+---
+
+### **1. Overview of My Experience**
+
+I joined the bank on 22 August 2022 as a Lead Security Developer. Since then, I have led multiple key projects that have improved security, automation, and delivery efficiency across our systems. I take full ownership of delivery from design to implementation, ensuring quality and governance. I also focus on collaboration with cross-functional teams to make sure our work meets both technical and business goals.
+
+---
+
+### **2. Business Problems Solved and Strategic Impact**
+
+I provide technical leadership through design guidance, mentorship, and promoting secure coding practices across teams. My focus is on building reusable frameworks, performing vulnerability checks, and embedding security into our processes by design.
+
+Some of the major projects I have led or contributed to include:
+
+* **ATM Certificate Management Portfolio:** I led the automation and migration of the ATM estate renewal process, including multiple dependent libraries. This ensured a smooth transition to the new renewal component with improved operational stability and compliance.
+* **CSM UI Development:** I delivered key enhancements that improved both the user experience and team efficiency for our internal systems.
+* **Application Evergreening Component:** I designed and implemented the automation solution that manages dependency upgrades across SETS in-house projects. This reduced manual upgrade work by around **80%**, saving **15–20 developer hours every month** and ensuring quicker rollout of critical security fixes.
+* **Akamai Cloud WAF Automation:** I am leading the design and delivery of this automation project to simplify onboarding of hosts and properties into Akamai. The solution greatly reduces manual work and enhances security consistency across environments.
+
+These projects solved key business problems by reducing operational risks, saving time, and improving overall system resilience. They also reflect how I have used technical leadership to influence security and engineering practices at scale.
+
+---
+
+### **3. Career Goal**
+
+I have always enjoyed being an individual contributor because it allows me to focus on technical depth and create real value. I take pride in mentoring others, solving complex challenges, and driving long-term improvements that benefit multiple teams.
+
+The **Expert Engineer Programme** is the right next step in my journey. It supports engineers who want to grow into strong technical leaders, with influence that extends across teams and systems. I believe this programme will help me deepen my impact by strengthening my technical leadership skills and expanding the value I bring to the organization.
+
+I would be grateful for your sponsorship and endorsement for this application. Please let me know if you would like me to share any more details or supporting information.
+
+Thank you for your time and consideration.
+
+Warm regards,
+**[Your Full Name]**
+Lead Security Developer
+[Your Department / Team Name]
+[Your Email Signature, if applicable]
+
+---
+
+✅ **This version:**
+
+* Uses **simple, clear English** (no corporate buzzwords).
+* Keeps the tone professional but human.
+* Moves the **technical leadership** part under *Business Problems Solved*, linking leadership → results.
+* Reads naturally for a director (short enough to scan, detailed enough to endorse).
+
+Would you like me to make it **slightly shorter** (for a quick-read internal email version, under 250 words), or do you want this one as your **final ready-to-send** version?
 
 
 " I've been working on, which focuses on automating the upgrade of POM or Gradle dependencies for most of the API’s. As we know, managing and upgrading dependencies can be a time-consuming task, especially as the size and complexity of a project grows. To address this challenge, I've integrated a Jenkins pipeline that seamlessly takes care of these upgrades without any manual intervention.
