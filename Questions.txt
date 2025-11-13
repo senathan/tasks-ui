@@ -1,0 +1,38 @@
+why you want to join the Expert Engineer Programme and what do you hope to get out of it?
+
+I want to join the Expert Engineer Programme because it matches the direction I naturally grew into over the years. I enjoy solving real problems, building tools that save time for others, and sharing what I learn with the team. This programme will give me a chance to do that on a bigger scale, with the right support and the right people around me.
+
+I’m also looking for a space where I can learn from other strong engineers, improve the way I think about architecture and long-term design, and sharpen the areas where I want to grow, like AI-driven automation and cloud engineering.
+
+Most of my work, like the Evergreening automation, started with a simple goal — make life easier for the team. Through this programme, I want to take that mindset further, contribute to wider engineering standards, and help build solutions that benefit more than just my immediate team.
+
+In short, I hope to grow technically, think bigger, and make a meaningful impact across teams, not just in my own area.
+---------------------------------------------------------------------------------------------------
+How did you cater for different capabilities and mindsets in your team?
+
+Every team has different learning speeds and comfort zones. Some members love automation; others prefer manual control because it feels safer. I spent time showing quick wins — like saving two hours in a task — to help them see the value.
+
+I also adjusted how I explained things: visual diagrams for some, hands-on sessions for others. That mix of approaches built confidence and helped everyone find their way to contribute.
+---------------------------------------------------------------------------------------------------
+
+How do you keep learning and staying up to date?
+
+I follow a simple rule — learn, try, and teach. Whenever I find a new tool or concept, I test it in a small personal project, and if it works, I share it with my team.
+
+Recently, I completed AWS certification and explored AI-driven automation tools. Sharing that knowledge through internal demos keeps me learning faster and builds a growth culture in the team.
+---------------------------------------------------------------------------------------------------
+
+How did you decide on the tools and technologies for this automation?
+
+I chose Jenkins because it was already part of our CI/CD ecosystem — that made adoption easier. Maven and Gradle were supported across all projects, so I built scripts that could handle both.
+
+Integrating Jira gave traceability for management, and using batch jobs allowed flexible scheduling. My goal was always to use existing infrastructure smartly, not reinvent the wheel.
+
+---------------------------------------------------------------------------------------------------
+How did you ensure the project delivered successfully under pressure?
+
+I kept three principles: focus, traceability, and small wins.
+Focus: We defined clear scope — first automating core APIs before expanding.
+Traceability: Everything was tied to Jira tickets for accountability.
+Small wins: We rolled out to one repo, proved the value, and then scaled.
+This approach built confidence and avoided overloading the team.
