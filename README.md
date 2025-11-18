@@ -144,13 +144,23 @@ If many people spend time on the same manual work, it is a good automation candi
 I check if the task has clear rules and low risk.
 The goal is to save time, reduce errors, and make work easier.
 
----
+SES Roles Pending Deletion
 
-If you want, I can now:
-📄 Create a **simple docx file** with these answers
-🎤 Make a **speech version** so you can practise
-📌 Make a **1-page cheat sheet** for quick revision
+Below roles should be deleted from the application.
+Please follow the steps outlined below to initiate the deletion process:
 
-Just tell me which one you want!
+🛠️ Process to Delete Roles in Request3
+
+Log in to Request3
+
+Navigate to Strategic Entitlement
+
+Select Action → Delete Role
+
+Choose the Application
+
+Enter a clear justification for deletion
+
+Click Submit
 
 
