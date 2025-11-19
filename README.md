@@ -143,24 +143,40 @@ I look for tasks that are repeated again and again.
 If many people spend time on the same manual work, it is a good automation candidate.
 I check if the task has clear rules and low risk.
 The goal is to save time, reduce errors, and make work easier.
+Sure! Here's a slightly longer version of the email in **simple and clear English**, also covering the point about **dummy data for Akamai dev**:
 
-SES Roles Pending Deletion
+---
 
-Below roles should be deleted from the application.
-Please follow the steps outlined below to initiate the deletion process:
+**Subject:** Deletion Handling in Batch App + Dev Data for Akamai
 
-🛠️ Process to Delete Roles in Request3
+Hi [Boss's Name],
 
-Log in to Request3
+I wanted to update you on two things related to the batch application and Akamai setup:
 
-Navigate to Strategic Entitlement
+### 1. **Deletion Handling in Batch Process**
 
-Select Action → Delete Role
+We’ve added logic to manage record deletions safely:
 
-Choose the Application
+* **Warning Threshold**: If more than 20% of the table records are marked for deletion in a batch run, a warning will be logged. This helps us catch any unusual or risky deletion patterns.
+* **Soft Delete with Retention**: Instead of hard deleting records immediately, we mark them as deleted and keep them for 7 days. After that, a scheduled job will permanently remove them.
 
-Enter a clear justification for deletion
+On the **frontend**, we will only show active (non-deleted) records to users. For admin views, we can optionally display soft-deleted entries with a note like “Pending Deletion — X days left” if needed.
 
-Click Submit
+### 2. **Dummy Data for Akamai Development**
+
+Since Akamai doesn’t offer a full sandbox, I’m exploring two approaches:
+
+* Use the **Akamai staging environment** to test safe dummy properties without affecting live traffic.
+* Alternatively, we can mock API responses locally to simulate Akamai behavior in dev/test environments.
+
+Let me know if you’d like to review or change any part of this approach.
+
+Best regards,
+[Your Name]
+
+---
+
+Let me know if you’d like this personalized with specific table names, environments, or if you want a shorter summary version.
+
 
 
