@@ -179,4 +179,23 @@ Best regards,
 Let me know if you’d like this personalized with specific table names, environments, or if you want a shorter summary version.
 
 
+| Task                                                      | Subtasks                                                                                                                                                                                                                            |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Design GitLab pipeline architecture**                   | 1. Define reusable stage templates and naming conventions. 2. Establish CI folder structure for common, maven, gradle components. 3. Document how accounts (system, bot) interact with each stage.                                  |
+| **Convert Jenkins logic to GitLab YAML for Maven**        | 1. Translate existing Jenkins stages/steps into GitLab `.gitlab-ci.yml`. 2. Integrate Maven dependency scan and upgrade jobs with proper caching/artifacts. 3. Wire jobs to use Jira key, branch names, and MR info from variables. |
+| **Convert Jenkins logic to GitLab YAML for Gradle**       | 1. Mirror Maven pipeline stages using Gradle commands and plugins. 2. Configure Gradle dependency update tool and reporting. 3. Validate full Gradle pipeline on a sample project and refine rules.                                 |
+| **Integrate Python scripts for Jira and PR in GitLab CI** | 1. Connect `create_jira_ticket.py` to GitLab CI variables and secrets. 2. Integrate PR creation script with GitLab API and branch naming strategy. 3. Add logging, error handling, and clear exit codes for pipeline visibility.    |
+| **Setup secure GitLab CI/CD variables**                   | 1. Create Jira, Git, and system tokens in GitLab as masked, protected variables. 2. Validate token scopes for Jira issue create/update and Git MR create. 3. Document variable usage and rotation process for security reviews.     |
+| **Build `run_upgrade.sh` with version fallback**          | 1. Implement logic to iterate from latest to lower versions on test failure. 2. Add support for exclude/common dependency lists from pipeline inputs. 3. Parse test results and set pipeline status / messages accordingly.         |
+| **Test E2E pipeline flow in demo repo**                   | 1. Run full pipeline on a controlled Maven project with fake upgrades. 2. Verify Jira ticket creation, branch creation, and MR generation. 3. Capture defects, edge cases, and refine scripts based on test runs.                   |
+| **Document user onboarding steps for SETS teams**         | 1. Create a “How to include evergreen pipeline” guide with examples. 2. Describe required variables, permissions, and expected outputs. 3. Add troubleshooting section for common failures (auth, tests, MR).                       |
+| **Create Visio diagrams and HLD documentation**           | 1. Build GitLab + Evergreen swimlane and flow diagrams in Visio. 2. Align diagrams with final pipeline stages and scripts. 3. Export and maintain HLD pack (Visio, PDF, links) for wider sharing.                                   |
+
+Migrate existing project from Stash to GitLab	- Create new GitLab project under FUSION- Migrate full repository & history- Validate build after migration
+Raise GitLab maintainer/developer access requests	- Submit access request for required users- Map groups and permissions- Validate access in project settings
+Create Evergreen project's own CI pipeline (versioning, scanning, release)	- Define version tagging logic- Integrate Sonar & Veracode pipeline stages- Publish artifacts to Nexus registry
+Define testing strategy and methods	- Establish unit, integration, regression approach- Define quality gates & thresholds- Document required test data and environments
+Production planning & first pilot validation	- Identify pilot SETS API for rollout- Conduct controlled validation cycle- Plan production release window & rollback steps
+
+
 
