@@ -198,4 +198,287 @@ Define testing strategy and methods	- Establish unit, integration, regression ap
 Production planning & first pilot validation	- Identify pilot SETS API for rollout- Conduct controlled validation cycle- Plan production release window & rollback steps
 
 
+Perfect — below are **detailed but still simple-English Jira task descriptions** for **each task** under the **GitLab Migration and Pipeline Modernisation** feature. You can copy-paste these directly into Jira.
+
+---
+
+# 🎯 **Feature**
+
+**GitLab Migration and Pipeline Modernisation**
+
+---
+
+## ✅ **Task 1: Create Mutation Testing POC**
+
+**Title:** Implement PIT (Mutation) Testing POC for one application
+
+**Description:**
+
+We need to introduce **mutation testing (PIT)** to improve test quality.
+
+Steps:
+
+* Select one application as POC
+* Integrate PIT mutation testing in the build
+* Run mutation tests and review results
+* Check build time impact
+* Document:
+
+  * How to run it
+  * How to fix failed mutations
+  * How to apply this to other apps
+
+Outcome:
+
+* We know if mutation testing is useful and practical
+* We have a clear approach to roll it out to all apps
+
+---
+
+## ✅ **Task 2: Decide In-Process or Out-of-Process Testing**
+
+**Title:** Decide and document testing approach (In-process vs Out-of-process)
+
+**Description:**
+
+We need to decide the **best testing approach** for GitLab pipelines.
+
+Steps:
+
+* Review current testing setup
+* Compare:
+
+  * In-process testing
+  * Out-of-process testing
+* Check:
+
+  * Speed
+  * Stability
+  * Maintenance effort
+* Choose one approach
+* Document:
+
+  * Why this approach is chosen
+  * How it will be used in GitLab pipelines
+
+Outcome:
+
+* One clear testing strategy for all apps
+
+---
+
+## ✅ **Task 3: Setup Performance Testing (Optional)**
+
+**Title:** Evaluate and setup basic performance testing in pipeline
+
+**Description:**
+
+We need to check if **performance testing** should be part of the pipeline.
+
+Steps:
+
+* Decide which tool to use (e.g., JMeter or similar)
+* Create a small performance test for one API/app
+* Add it to the pipeline (optional or nightly)
+* Check:
+
+  * Runtime impact
+  * Usefulness of results
+* Document recommendation:
+
+  * Keep it or not
+
+Outcome:
+
+* Clear decision and working example if needed
+
+---
+
+## ✅ **Task 4: Improve Sonar and Veracode Quality Gates**
+
+**Title:** Make Sonar and Veracode pass with 90% quality threshold
+
+**Description:**
+
+All apps must meet **quality and security standards** before GitLab migration.
+
+Steps:
+
+* Set Sonar coverage threshold to **90%**
+* Run Sonar and Veracode scans
+* Fix:
+
+  * Test coverage issues
+  * Code smells
+  * Security issues
+* Make sure:
+
+  * Pipelines fail if quality gate fails
+
+Outcome:
+
+* Clean, secure, and well-tested code
+
+---
+
+## ✅ **Task 5: Onboard Applications to GitLab**
+
+**Title:** Migrate source code from Stash to GitLab
+
+**Description:**
+
+We need to move code from **Stash to GitLab**.
+
+Steps:
+
+* Create GitLab repositories
+* Migrate code and branches from Stash
+* Setup:
+
+  * Access control
+  * Branch protection
+* Make sure:
+
+  * Developers can clone, push, and create MR
+
+Outcome:
+
+* All apps are available in GitLab
+
+---
+
+## ✅ **Task 6: Migrate Pipeline to MCA**
+
+**Title:** Convert Jenkins pipeline to MCA GitLab pipeline
+
+**Description:**
+
+We need to move build pipelines from **Jenkins to MCA GitLab pipelines**.
+
+Steps:
+
+* Review existing Jenkins pipeline
+* Create GitLab pipeline using MCA template
+* Add stages:
+
+  * Build
+  * Test
+  * Sonar
+  * Veracode
+* Make sure pipeline:
+
+  * Works end-to-end
+  * Produces same or better results than Jenkins
+
+Outcome:
+
+* Jenkins no longer needed for this app
+
+---
+
+## ✅ **Task 7: Continuous Development POC**
+
+**Title:** Create POC for continuous development on top of MCA pipeline
+
+**Description:**
+
+We need to define the **right production-grade continuous development approach**.
+
+Steps:
+
+* Design:
+
+  * Branch strategy
+  * Promotion flow
+* Build a POC pipeline:
+
+  * Auto deploy to lower env
+  * Controlled promotion to higher env
+* Check how this fits with MCA
+* Document final approach
+
+Outcome:
+
+* Clear long-term pipeline strategy
+
+---
+
+## ✅ **Task 8: Setup UAT Deployment**
+
+**Title:** Enable UAT deployment from GitLab pipeline
+
+**Description:**
+
+We need to deploy to **UAT directly from GitLab**.
+
+Steps:
+
+* Add UAT deploy stage in pipeline
+* Setup:
+
+  * Credentials
+  * Approvals (if needed)
+* Test:
+
+  * Deployment
+  * Rollback (if applicable)
+
+Outcome:
+
+* UAT deployment works fully from GitLab
+
+---
+
+## ✅ **Task 9: Setup Production Deployment**
+
+**Title:** Enable Production deployment from GitLab pipeline
+
+**Description:**
+
+We need safe and controlled **Production deployment** from GitLab.
+
+Steps:
+
+* Add Prod deploy stage
+* Add:
+
+  * Manual approval
+  * Change / release control steps
+* Test deployment in controlled way
+
+Outcome:
+
+* Production can be deployed from GitLab safely
+
+---
+
+## ✅ **Task 10: Decommission Jenkins and Stash Access**
+
+**Title:** Remove old Jenkins and Stash pipelines and service accounts
+
+**Description:**
+
+After migration, we must **clean up old systems**.
+
+Steps:
+
+* Disable Jenkins pipelines
+* Remove:
+
+  * Old service accounts
+  * Old access tokens
+* Confirm:
+
+  * No app depends on Jenkins or Stash anymore
+
+Outcome:
+
+* No security risk or technical debt left behind
+
+---
+
+If you want, I can:
+
+* Convert this into **one Jira feature with child tasks format**
+* Or **rewrite this for RTB / Architecture board approval**.
 
