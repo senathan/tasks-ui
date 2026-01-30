@@ -482,3 +482,329 @@ If you want, I can:
 * Convert this into **one Jira feature with child tasks format**
 * Or **rewrite this for RTB / Architecture board approval**.
 
+
+Got it 👍
+Below is a **very detailed, step-by-step Confluence document**, written in **clear, simple English**, **not one-liners**, and suitable for **audit, RTB, and team reference**.
+This is tailored for **Jenkins → GitLab migration**, **aPaaS v4**, and **POS-UI applications**.
+
+---
+
+# Jenkins to GitLab Migration – aPaaS v4 (POS-UI Applications)
+
+---
+
+## 1. Summary
+
+This document explains how POS-UI applications hosted on **aPaaS v4** are migrated from **Jenkins and Stash** to **GitLab CI/CD**.
+
+The migration replaces Jenkins pipelines with GitLab pipelines using **central GitLab components** and **MCA standards**. It also removes the old aPaaS promotion-based deployment approach and introduces **direct GitLab-driven deployments** using Helm.
+
+This document covers:
+
+* Non-Production migration approach
+* Production migration approach
+* Validation and rollback strategy
+* Monitoring period
+* Decommissioning and cleanup steps
+
+---
+
+## 2. Background and Reason for Migration
+
+Currently, applications use:
+
+* Jenkins for build and deployment
+* Stash for source control
+* aPaaS promotion mechanism to move applications to higher environments
+
+This setup has limitations:
+
+* Multiple CI/CD tools to manage
+* Manual promotion steps
+* Legacy service accounts and credentials
+* Limited reuse of centrally supported pipelines
+
+Moving to GitLab provides:
+
+* A single CI/CD platform
+* Reusable central pipeline components
+* Better security controls
+* Easier long-term maintenance
+
+---
+
+## 3. Applications and Platform Details
+
+* Application type: **POS-UI**
+* Platform: **aPaaS v4**
+* Deployment mechanism: **Helm**
+* Container registry: **Nexus**
+* CI/CD platform: **GitLab (MCA pipelines)**
+
+---
+
+## 4. Pre-Migration Preparation
+
+### 4.1 Repository and Pipeline Readiness
+
+Before starting migration, the repository must be prepared for GitLab.
+
+This includes:
+
+* Creating or updating `.gitlab-ci.yml`
+* Removing Jenkins-specific scripts and references
+* Adopting GitLab pipeline components provided by the **central platform team**
+
+The `.gitlab-ci.yml` must define:
+
+* Build stages
+* Test stages
+* Security scans
+* Deployment stages
+
+---
+
+### 4.2 Helm Chart Changes
+
+Helm charts must be updated to support GitLab-based deployments.
+
+Required changes:
+
+* Remove Jenkins-specific values
+* Update image repository to point to **new Nexus registry**
+* Ensure correct image tagging strategy
+* Validate environment-specific Helm values
+
+These changes ensure deployments are fully controlled by GitLab pipelines.
+
+---
+
+### 4.3 Nexus Container Registry Update
+
+The application image build and push process must be updated to use the **new Nexus container registry**.
+
+Actions required:
+
+* Update image repository URL
+* Validate authentication and permissions
+* Ensure images are correctly tagged per environment
+* Confirm GitLab pipeline can push and pull images
+
+---
+
+### 4.4 Build Configuration Updates
+
+#### Maven Applications
+
+* Update `maven.properties` if required
+* Update `pom.xml` for:
+
+  * Sonar integration
+  * Veracode integration
+  * Nexus registry support
+* Remove unused or deprecated plugins
+
+#### Node / UI Applications
+
+* Update `package.json` if required
+* Fix deprecated libraries
+* Resolve known vulnerabilities
+* Ensure build works in GitLab runner
+
+---
+
+### 4.5 Code Quality and Security Readiness
+
+Before migration:
+
+* Existing vulnerabilities must be fixed
+* Applications must be onboarded to **Sonar**
+* Applications must be onboarded to **Veracode**
+* Quality gates must be enforced in GitLab pipelines
+
+Pipelines should fail if:
+
+* Sonar quality gate fails
+* Veracode policy fails
+
+---
+
+## 5. Non-Production Migration
+
+### 5.1 Non-Prod Migration Overview
+
+Non-Production is migrated first to validate the GitLab pipeline and deployment approach without risk to production users.
+
+The key change is that:
+
+* Jenkins is no longer used
+* aPaaS promotion is removed
+* GitLab handles build, deploy, and validation
+
+---
+
+### 5.2 Key Changes in Non-Prod
+
+* Jenkins pipeline is disabled
+* GitLab pipeline becomes the single CI/CD path
+* Helm deployments triggered from GitLab
+* Central GitLab deployment components are used
+* No manual promotion via aPaaS UI
+
+---
+
+### 5.3 Non-Prod Deployment Flow
+
+1. Developer pushes code to GitLab
+2. GitLab pipeline starts automatically
+3. Build and tests are executed
+4. Sonar and Veracode scans run
+5. Image is pushed to Nexus
+6. Helm deployment runs for Non-Prod
+7. Application becomes available in Non-Prod
+
+---
+
+### 5.4 Non-Prod Validation Checklist
+
+After deployment, validate the following:
+
+* GitLab pipeline completed successfully
+* Application is reachable via Non-Prod route
+* UI loads correctly
+* Basic functional flows work
+* Logs show no errors
+* Monitoring dashboards look normal
+* Sonar and Veracode reports are generated
+
+---
+
+### 5.5 Alternative Approaches Considered
+
+* Keeping Jenkins for deployments was considered but rejected
+* Using mixed Jenkins and GitLab pipelines was rejected due to complexity
+* Full GitLab migration was approved as the standard approach
+
+---
+
+## 6. Production Migration
+
+### 6.1 Production Migration Overview
+
+Production migration follows successful Non-Prod validation.
+
+Production deployments are:
+
+* Fully controlled by GitLab
+* Protected by manual approval
+* Auditable and repeatable
+
+---
+
+### 6.2 Production Deployment Process
+
+1. GitLab pipeline is triggered
+2. Required approvals are provided
+3. Build and security checks run
+4. Image is pulled from Nexus
+5. Helm deployment is executed in Prod
+6. Application health is validated
+
+---
+
+### 6.3 Production Validation Checklist
+
+After deployment, confirm:
+
+* Production route is accessible
+* No increase in error rates
+* No performance degradation
+* Logs are clean
+* Monitoring and alerts are stable
+* Business users confirm functionality
+
+---
+
+## 7. Rollback Strategy (POS-UI Applications)
+
+If the forward deployment fails:
+
+* Automatic rollback is **not sufficient**
+* Manual intervention is required
+
+### Rollback Steps:
+
+1. Login to **aPaaS in developer mode**
+2. Identify the routing configuration
+3. Update route to point to **previous service**
+4. Validate application accessibility
+5. Investigate GitLab deployment failure
+
+This approach ensures traffic is restored quickly.
+
+---
+
+## 8. Post-Migration Monitoring
+
+After successful Production migration:
+
+* Application must be monitored for **two weeks**
+* Key areas to monitor:
+
+  * Errors
+  * Performance
+  * Stability
+  * User impact
+* Confirm no Jenkins jobs are triggered during this period
+
+---
+
+## 9. Decommissioning and Cleanup
+
+### 9.1 Jenkins and Stash Decommissioning
+
+After the monitoring period:
+
+* Disable Jenkins pipelines permanently
+* Remove Jenkins service accounts
+* Remove Jenkins credentials and tokens
+* Remove Stash access where no longer needed
+
+---
+
+### 9.2 aPaaS Cleanup (Developer Mode)
+
+Login to **aPaaS as developer** and perform cleanup.
+
+Steps:
+
+1. Delete the **old Helm release**
+2. Verify old resources are removed:
+
+   * Deployments
+   * Services
+   * Secrets
+   * ConfigMaps
+3. Ensure only GitLab-managed resources exist
+
+---
+
+## 10. Final Outcome
+
+After completing migration and cleanup:
+
+* Jenkins and Stash are fully decommissioned
+* GitLab is the only CI/CD tool
+* Central GitLab components are reused
+* Deployment process is simplified
+* Security and quality are improved
+* Platform is ready for future enhancements
+
+---
+
+If you want next:
+
+* I can **add diagrams (flow + rollback)**
+* Or **convert this into RTB / architecture board format**
+* Or **create a separate checklist page for engineers**
+
