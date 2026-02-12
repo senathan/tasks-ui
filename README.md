@@ -197,614 +197,147 @@ Create Evergreen project's own CI pipeline (versioning, scanning, release)	- Def
 Define testing strategy and methods	- Establish unit, integration, regression approach- Define quality gates & thresholds- Document required test data and environments
 Production planning & first pilot validation	- Identify pilot SETS API for rollout- Conduct controlled validation cycle- Plan production release window & rollback steps
 
-
-Perfect — below are **detailed but still simple-English Jira task descriptions** for **each task** under the **GitLab Migration and Pipeline Modernisation** feature. You can copy-paste these directly into Jira.
-
----
-
-# 🎯 **Feature**
-
-**GitLab Migration and Pipeline Modernisation**
+Here’s a **clear, structured, and professional rewrite** of your production release implementation steps for the **GitLab migration**. This works well for a release document, change record, or implementation plan.
 
 ---
 
-## ✅ **Task 1: Create Mutation Testing POC**
+### **GitLab Migration – Production Release Implementation Plan**
 
-**Title:** Implement PIT (Mutation) Testing POC for one application
+As part of the GitLab migration, I am preparing for the production release implementation with the following steps:
 
-**Description:**
+1. **Change Record & Access Control**
 
-We need to introduce **mutation testing (PIT)** to improve test quality.
+   * Ensure the change request is moved to the **Implementation** state.
+   * This is required to access production secrets from the **production safe**.
+   * Once access is available, the GitLab pipeline will be triggered using the deployed code.
 
-Steps:
+2. **System Account Access**
 
-* Select one application as POC
-* Integrate PIT mutation testing in the build
-* Run mutation tests and review results
-* Check build time impact
-* Document:
+   * Verify that the system account has access to **GitLab**.
+   * Ensure **read access** is granted for the **GitLab Container Registry**.
 
-  * How to run it
-  * How to fix failed mutations
-  * How to apply this to other apps
+3. **aPaaS Storage Setup**
 
-Outcome:
+   * Log in to **aPaaS**.
+   * Navigate to **Storage** and create the required **PVC** with the appropriate name if it does not already exist.
 
-* We know if mutation testing is useful and practical
-* We have a clear approach to roll it out to all apps
+4. **Pre-Deployment Backup**
 
----
+   * Take a full backup of all critical components before deployment, including:
 
-## ✅ **Task 2: Decide In-Process or Out-of-Process Testing**
+     * Services
+     * BLB
+     * Certificates
+     * Any other dependent resources
 
-**Title:** Decide and document testing approach (In-process vs Out-of-process)
+5. **Scale Down Existing Pods**
 
-**Description:**
+   * Bring down the existing pods to avoid conflicts during deployment.
 
-We need to decide the **best testing approach** for GitLab pipelines.
+6. **Service Repointing**
 
-Steps:
+   * Repoint the service to the existing route as part of the cutover.
 
-* Review current testing setup
-* Compare:
+7. **Rollback Plan**
 
-  * In-process testing
-  * Out-of-process testing
-* Check:
-
-  * Speed
-  * Stability
-  * Maintenance effort
-* Choose one approach
-* Document:
-
-  * Why this approach is chosen
-  * How it will be used in GitLab pipelines
-
-Outcome:
-
-* One clear testing strategy for all apps
+   * Ensure rollback options are clearly defined and validated in case the deployment needs to be reverted.
+Below is a **fully expanded, CAB-ready Change Record implementation section** written in a **formal, management-appropriate tone**, with **no single-line answers**. Each step is explained in detail, including **pre-checks, implementation steps, post-checks, and a comprehensive rollback procedure**.
 
 ---
 
-## ✅ **Task 3: Setup Performance Testing (Optional)**
+## **Change Record – Implementation Plan**
 
-**Title:** Evaluate and setup basic performance testing in pipeline
-
-**Description:**
-
-We need to check if **performance testing** should be part of the pipeline.
-
-Steps:
-
-* Decide which tool to use (e.g., JMeter or similar)
-* Create a small performance test for one API/app
-* Add it to the pipeline (optional or nightly)
-* Check:
-
-  * Runtime impact
-  * Usefulness of results
-* Document recommendation:
-
-  * Keep it or not
-
-Outcome:
-
-* Clear decision and working example if needed
+**Change Title:** GitLab Migration – Production Release
+**Environment:** Production
+**Change Type:** Planned / Standard (with rollback)
+**Risk Level:** Medium (controlled via backups and rollback plan)
 
 ---
 
-## ✅ **Task 4: Improve Sonar and Veracode Quality Gates**
+## **1. Pre-Implementation Checks**
 
-**Title:** Make Sonar and Veracode pass with 90% quality threshold
+Before starting the production deployment, a series of pre-implementation checks will be completed to ensure the environment is stable, access is available, and risks are minimized.
 
-**Description:**
+Firstly, the approved **Change Record** must be in the **Implementation** state. This is mandatory because access to production secrets stored in the **production safe** is governed by change state controls. Without the change being in the correct state, the GitLab pipeline will not be able to retrieve the required secrets securely.
 
-All apps must meet **quality and security standards** before GitLab migration.
+Secondly, access verification will be performed for the **system account** used by the GitLab pipeline. This account must have valid authentication access to GitLab and must also have **read access to the GitLab Container Registry**. This ensures that container images can be pulled during deployment without permission-related failures.
 
-Steps:
+Thirdly, the **aPaaS platform** will be reviewed to confirm platform availability and capacity. The storage configuration will be checked to determine whether the required **Persistent Volume Claim (PVC)** already exists. If the PVC is missing, it will be created in advance to avoid runtime deployment issues.
 
-* Set Sonar coverage threshold to **90%**
-* Run Sonar and Veracode scans
-* Fix:
+In addition, the current production state will be assessed. This includes verifying that the application is healthy, traffic levels are normal, and no ongoing incidents or overlapping changes are active during the planned change window.
 
-  * Test coverage issues
-  * Code smells
-  * Security issues
-* Make sure:
-
-  * Pipelines fail if quality gate fails
-
-Outcome:
-
-* Clean, secure, and well-tested code
+Finally, a communication checkpoint will be completed, confirming that all relevant stakeholders are informed and that the approved deployment window is still valid.
 
 ---
 
-## ✅ **Task 5: Onboard Applications to GitLab**
+## **2. Backup and Safeguarding Activities**
 
-**Title:** Migrate source code from Stash to GitLab
+Prior to making any changes in production, a full backup of all critical components will be taken to ensure system recoverability.
 
-**Description:**
+This includes backing up the **existing service definitions**, **BLB configurations**, **certificates**, **routing information**, and any other dependent infrastructure elements associated with the application. Configuration files and deployment manifests will also be preserved.
 
-We need to move code from **Stash to GitLab**.
-
-Steps:
-
-* Create GitLab repositories
-* Migrate code and branches from Stash
-* Setup:
-
-  * Access control
-  * Branch protection
-* Make sure:
-
-  * Developers can clone, push, and create MR
-
-Outcome:
-
-* All apps are available in GitLab
+The purpose of this step is to ensure that the system can be restored to its exact pre-change state if required. Backup validation will be performed to confirm that the captured data is complete and usable before proceeding further.
 
 ---
 
-## ✅ **Task 6: Migrate Pipeline to MCA**
+## **3. Implementation Steps**
 
-**Title:** Convert Jenkins pipeline to MCA GitLab pipeline
+Once all pre-checks are successfully completed and backups are confirmed, the production implementation will begin.
 
-**Description:**
+The first step in the implementation phase is enabling secure access to production secrets. With the change record now in the **Implementation** state, the GitLab pipeline will be able to retrieve secrets from the production safe. The pipeline will then be triggered using the approved code residing in the GitLab repository.
 
-We need to move build pipelines from **Jenkins to MCA GitLab pipelines**.
+Next, the deployment preparation within **aPaaS** will be completed. If the required PVC does not exist, it will be created with the agreed naming convention and configuration. This ensures persistent storage is available before application startup.
 
-Steps:
+Following this, the existing application pods will be gracefully brought down. This controlled shutdown prevents conflicts between old and new workloads and ensures a clean deployment state.
 
-* Review existing Jenkins pipeline
-* Create GitLab pipeline using MCA template
-* Add stages:
+Once the pods are stopped, the new deployment will proceed using the GitLab pipeline. The application will be deployed using the updated GitLab-based process, and the service will be repointed to the **existing route** to ensure continuity of external access without requiring DNS or routing changes.
 
-  * Build
-  * Test
-  * Sonar
-  * Veracode
-* Make sure pipeline:
-
-  * Works end-to-end
-  * Produces same or better results than Jenkins
-
-Outcome:
-
-* Jenkins no longer needed for this app
+Throughout the deployment process, logs and deployment events will be actively monitored to quickly identify and respond to any anomalies.
 
 ---
 
-## ✅ **Task 7: Continuous Development POC**
+## **4. Post-Implementation Validation Checks**
 
-**Title:** Create POC for continuous development on top of MCA pipeline
+After the deployment is completed, a structured set of post-implementation checks will be carried out to confirm system stability and successful migration.
 
-**Description:**
+The application pods will be verified to ensure they are running successfully and have reached a healthy state. Pod logs will be reviewed to confirm there are no startup errors or configuration issues.
 
-We need to define the **right production-grade continuous development approach**.
+Service connectivity will then be validated by confirming that traffic is correctly routed through the existing route and that the application responds as expected. Health endpoints and functional checks will be performed to ensure core features are operating normally.
 
-Steps:
+Certificate validity and BLB behavior will also be verified to confirm there are no regressions in security or load balancing behavior.
 
-* Design:
-
-  * Branch strategy
-  * Promotion flow
-* Build a POC pipeline:
-
-  * Auto deploy to lower env
-  * Controlled promotion to higher env
-* Check how this fits with MCA
-* Document final approach
-
-Outcome:
-
-* Clear long-term pipeline strategy
+Once technical validation is complete, monitoring dashboards and alerts will be reviewed to ensure there are no unexpected error spikes or performance degradation. If all checks pass, the change will be marked as successfully implemented.
 
 ---
 
-## ✅ **Task 8: Setup UAT Deployment**
+## **5. Rollback Procedure**
 
-**Title:** Enable UAT deployment from GitLab pipeline
+A rollback plan is in place to ensure rapid recovery in case of deployment failure or unexpected production impact.
 
-**Description:**
+If any critical issues are detected during or after deployment—such as application instability, failed health checks, or traffic impact—the rollback will be initiated immediately.
 
-We need to deploy to **UAT directly from GitLab**.
+The rollback process will begin by stopping the newly deployed pods to prevent further impact. The previously backed-up service configurations, BLB settings, certificates, and routing configurations will then be restored to their original state.
 
-Steps:
+The service will be repointed back to the previous stable deployment, and the original pods will be brought back online. Once restored, health checks and functional validations will be performed to confirm that the system has returned to its pre-change stable condition.
 
-* Add UAT deploy stage in pipeline
-* Setup:
-
-  * Credentials
-  * Approvals (if needed)
-* Test:
-
-  * Deployment
-  * Rollback (if applicable)
-
-Outcome:
-
-* UAT deployment works fully from GitLab
+All rollback actions and observations will be documented, and stakeholders will be informed of the rollback completion and root cause analysis plan.
 
 ---
 
-## ✅ **Task 9: Setup Production Deployment**
+## **6. Change Completion and Communication**
 
-**Title:** Enable Production deployment from GitLab pipeline
+After successful implementation or rollback, the change record will be updated with final status, validation evidence, and any relevant observations.
 
-**Description:**
-
-We need safe and controlled **Production deployment** from GitLab.
-
-Steps:
-
-* Add Prod deploy stage
-* Add:
-
-  * Manual approval
-  * Change / release control steps
-* Test deployment in controlled way
-
-Outcome:
-
-* Production can be deployed from GitLab safely
+Stakeholders will be notified of the change outcome, including confirmation of success or details of rollback actions if applicable. Any follow-up actions or improvements identified during the change will be tracked separately.
 
 ---
 
-## ✅ **Task 10: Decommission Jenkins and Stash Access**
+### **CAB Summary (Management View)**
 
-**Title:** Remove old Jenkins and Stash pipelines and service accounts
-
-**Description:**
-
-After migration, we must **clean up old systems**.
-
-Steps:
-
-* Disable Jenkins pipelines
-* Remove:
-
-  * Old service accounts
-  * Old access tokens
-* Confirm:
-
-  * No app depends on Jenkins or Stash anymore
-
-Outcome:
-
-* No security risk or technical debt left behind
+This change introduces a controlled migration to GitLab for production deployment, supported by strict access controls, validated backups, monitored deployment steps, and a fully defined rollback strategy. The risk is mitigated through pre-checks, controlled execution, and immediate restoration capability.
 
 ---
 
-If you want, I can:
 
-* Convert this into **one Jira feature with child tasks format**
-* Or **rewrite this for RTB / Architecture board approval**.
 
-
-Got it 👍
-Below is a **very detailed, step-by-step Confluence document**, written in **clear, simple English**, **not one-liners**, and suitable for **audit, RTB, and team reference**.
-This is tailored for **Jenkins → GitLab migration**, **aPaaS v4**, and **POS-UI applications**.
-
----
-
-# Jenkins to GitLab Migration – aPaaS v4 (POS-UI Applications)
-
----
-
-## 1. Summary
-
-This document explains how POS-UI applications hosted on **aPaaS v4** are migrated from **Jenkins and Stash** to **GitLab CI/CD**.
-
-The migration replaces Jenkins pipelines with GitLab pipelines using **central GitLab components** and **MCA standards**. It also removes the old aPaaS promotion-based deployment approach and introduces **direct GitLab-driven deployments** using Helm.
-
-This document covers:
-
-* Non-Production migration approach
-* Production migration approach
-* Validation and rollback strategy
-* Monitoring period
-* Decommissioning and cleanup steps
-
----
-
-## 2. Background and Reason for Migration
-
-Currently, applications use:
-
-* Jenkins for build and deployment
-* Stash for source control
-* aPaaS promotion mechanism to move applications to higher environments
-
-This setup has limitations:
-
-* Multiple CI/CD tools to manage
-* Manual promotion steps
-* Legacy service accounts and credentials
-* Limited reuse of centrally supported pipelines
-
-Moving to GitLab provides:
-
-* A single CI/CD platform
-* Reusable central pipeline components
-* Better security controls
-* Easier long-term maintenance
-
----
-
-## 3. Applications and Platform Details
-
-* Application type: **POS-UI**
-* Platform: **aPaaS v4**
-* Deployment mechanism: **Helm**
-* Container registry: **Nexus**
-* CI/CD platform: **GitLab (MCA pipelines)**
-
----
-
-## 4. Pre-Migration Preparation
-
-### 4.1 Repository and Pipeline Readiness
-
-Before starting migration, the repository must be prepared for GitLab.
-
-This includes:
-
-* Creating or updating `.gitlab-ci.yml`
-* Removing Jenkins-specific scripts and references
-* Adopting GitLab pipeline components provided by the **central platform team**
-
-The `.gitlab-ci.yml` must define:
-
-* Build stages
-* Test stages
-* Security scans
-* Deployment stages
-
----
-
-### 4.2 Helm Chart Changes
-
-Helm charts must be updated to support GitLab-based deployments.
-
-Required changes:
-
-* Remove Jenkins-specific values
-* Update image repository to point to **new Nexus registry**
-* Ensure correct image tagging strategy
-* Validate environment-specific Helm values
-
-These changes ensure deployments are fully controlled by GitLab pipelines.
-
----
-
-### 4.3 Nexus Container Registry Update
-
-The application image build and push process must be updated to use the **new Nexus container registry**.
-
-Actions required:
-
-* Update image repository URL
-* Validate authentication and permissions
-* Ensure images are correctly tagged per environment
-* Confirm GitLab pipeline can push and pull images
-
----
-
-### 4.4 Build Configuration Updates
-
-#### Maven Applications
-
-* Update `maven.properties` if required
-* Update `pom.xml` for:
-
-  * Sonar integration
-  * Veracode integration
-  * Nexus registry support
-* Remove unused or deprecated plugins
-
-#### Node / UI Applications
-
-* Update `package.json` if required
-* Fix deprecated libraries
-* Resolve known vulnerabilities
-* Ensure build works in GitLab runner
-
----
-
-### 4.5 Code Quality and Security Readiness
-
-Before migration:
-
-* Existing vulnerabilities must be fixed
-* Applications must be onboarded to **Sonar**
-* Applications must be onboarded to **Veracode**
-* Quality gates must be enforced in GitLab pipelines
-
-Pipelines should fail if:
-
-* Sonar quality gate fails
-* Veracode policy fails
-
----
-
-## 5. Non-Production Migration
-
-### 5.1 Non-Prod Migration Overview
-
-Non-Production is migrated first to validate the GitLab pipeline and deployment approach without risk to production users.
-
-The key change is that:
-
-* Jenkins is no longer used
-* aPaaS promotion is removed
-* GitLab handles build, deploy, and validation
-
----
-
-### 5.2 Key Changes in Non-Prod
-
-* Jenkins pipeline is disabled
-* GitLab pipeline becomes the single CI/CD path
-* Helm deployments triggered from GitLab
-* Central GitLab deployment components are used
-* No manual promotion via aPaaS UI
-
----
-
-### 5.3 Non-Prod Deployment Flow
-
-1. Developer pushes code to GitLab
-2. GitLab pipeline starts automatically
-3. Build and tests are executed
-4. Sonar and Veracode scans run
-5. Image is pushed to Nexus
-6. Helm deployment runs for Non-Prod
-7. Application becomes available in Non-Prod
-
----
-
-### 5.4 Non-Prod Validation Checklist
-
-After deployment, validate the following:
-
-* GitLab pipeline completed successfully
-* Application is reachable via Non-Prod route
-* UI loads correctly
-* Basic functional flows work
-* Logs show no errors
-* Monitoring dashboards look normal
-* Sonar and Veracode reports are generated
-
----
-
-### 5.5 Alternative Approaches Considered
-
-* Keeping Jenkins for deployments was considered but rejected
-* Using mixed Jenkins and GitLab pipelines was rejected due to complexity
-* Full GitLab migration was approved as the standard approach
-
----
-
-## 6. Production Migration
-
-### 6.1 Production Migration Overview
-
-Production migration follows successful Non-Prod validation.
-
-Production deployments are:
-
-* Fully controlled by GitLab
-* Protected by manual approval
-* Auditable and repeatable
-
----
-
-### 6.2 Production Deployment Process
-
-1. GitLab pipeline is triggered
-2. Required approvals are provided
-3. Build and security checks run
-4. Image is pulled from Nexus
-5. Helm deployment is executed in Prod
-6. Application health is validated
-
----
-
-### 6.3 Production Validation Checklist
-
-After deployment, confirm:
-
-* Production route is accessible
-* No increase in error rates
-* No performance degradation
-* Logs are clean
-* Monitoring and alerts are stable
-* Business users confirm functionality
-
----
-
-## 7. Rollback Strategy (POS-UI Applications)
-
-If the forward deployment fails:
-
-* Automatic rollback is **not sufficient**
-* Manual intervention is required
-
-### Rollback Steps:
-
-1. Login to **aPaaS in developer mode**
-2. Identify the routing configuration
-3. Update route to point to **previous service**
-4. Validate application accessibility
-5. Investigate GitLab deployment failure
-
-This approach ensures traffic is restored quickly.
-
----
-
-## 8. Post-Migration Monitoring
-
-After successful Production migration:
-
-* Application must be monitored for **two weeks**
-* Key areas to monitor:
-
-  * Errors
-  * Performance
-  * Stability
-  * User impact
-* Confirm no Jenkins jobs are triggered during this period
-
----
-
-## 9. Decommissioning and Cleanup
-
-### 9.1 Jenkins and Stash Decommissioning
-
-After the monitoring period:
-
-* Disable Jenkins pipelines permanently
-* Remove Jenkins service accounts
-* Remove Jenkins credentials and tokens
-* Remove Stash access where no longer needed
-
----
-
-### 9.2 aPaaS Cleanup (Developer Mode)
-
-Login to **aPaaS as developer** and perform cleanup.
-
-Steps:
-
-1. Delete the **old Helm release**
-2. Verify old resources are removed:
-
-   * Deployments
-   * Services
-   * Secrets
-   * ConfigMaps
-3. Ensure only GitLab-managed resources exist
-
----
-
-## 10. Final Outcome
-
-After completing migration and cleanup:
-
-* Jenkins and Stash are fully decommissioned
-* GitLab is the only CI/CD tool
-* Central GitLab components are reused
-* Deployment process is simplified
-* Security and quality are improved
-* Platform is ready for future enhancements
-
----
-
-If you want next:
-
-* I can **add diagrams (flow + rollback)**
-* Or **convert this into RTB / architecture board format**
-* Or **create a separate checklist page for engineers**
 
