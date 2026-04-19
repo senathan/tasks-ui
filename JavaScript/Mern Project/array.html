@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Must know Items</h3>
+    <script>
+        let a = 25;
+        console.log(a);
+
+        let numbers = [10,20,30,40,50]; // store all vaules in one variable.
+        console.log(numbers[2]); 
+
+        // Arrays and methods(map, filter, reduce, find, some, every)
+        const result = numbers.map((number) => number/10) // curly braces manual return is important
+        console.log(result);
+
+        const filterRes = numbers.filter((number) => {
+            return number >= 30
+        })
+        console.log(filterRes);
+
+
+        const reduceRes = numbers.reduce((accumulator, currentVal) => {
+            /*
+
+            */
+            return accumulator + currentVal
+        }, 20) // intial value two parameters
+        console.log(reduceRes);
+
+        const users = [{name: 'Tiya', age: 25}, {name: 'Tivin', age: 30}];
+        const userAbove30 = users.find((user)=> user.age === 30)
+        console.log(userAbove30)
+
+        const marks = [45, 60, 35, 80];
+        const allPass = marks.every((mark) => mark >=40)
+        console.log(allPass);
+
+        const hasPass = marks.some((mark) => mark <=40)
+        console.log(hasPass);   
+
+    </script>
+</body>
+</html>
