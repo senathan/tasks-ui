@@ -72,211 +72,42 @@ sonar.issue.ignore.multicriteria.S1192.ruleKey = java:S1192
 sonar.issue.ignore.multicriteria.S125.resourceKey = src/main/resources/logback-spring.xml
 sonar.issue.ignore.multicriteria.S125.ruleKey = xml:S125
 
-package com.mycompany.insurance.config;
 
-import ch.qos.logback.classic.spi.ILoggingEvent;
-import ch.qos.logback.core.pattern.CompositeConverter;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
-import org.springframework.boot.ansi.AnsiColor;
-import org.springframework.boot.ansi.AnsiElement;
-import org.springframework.boot.ansi.AnsiOutput;
-import org.springframework.boot.ansi.AnsiStyle;
+Scenario 2: Upgrade when release exists
 
-/**
- * Log filter to prevent attackers from forging log entries by submitting input containing CRLF characters.
- * CRLF characters are replaced with a red colored _ character.
- *
- * @see <a href="https://owasp.org/www-community/attacks/Log_Injection">Log Forging Description</a>
- * @see <a href="https://github.com/jhipster/generator-jhipster/issues/14949">JHipster issue</a>
- */
-public class CRLFLogConverter extends CompositeConverter<ILoggingEvent> {
+Given an existing Helm release is already deployed
+When the Helm deployment is triggered
+Then the existing release should be upgraded without errors
 
-    public static final Marker CRLF_SAFE_MARKER = MarkerFactory.getMarker("CRLF_SAFE");
+Scenario 3: Successful UI Integration
 
-    private static final String[] SAFE_LOGS = {
-        "org.hibernate",
-        "org.springframework.boot.autoconfigure",
-        "org.springframework.boot.diagnostics",
-    };
-    private static final Map<String, AnsiElement> ELEMENTS;
+Given the authentication gateway component is deployed
+When the Cloud-WAF UI application is accessed
+Then the UI should successfully integrate with the authentication gateway
 
-    static {
-        Map<String, AnsiElement> ansiElements = new HashMap<>();
-        ansiElements.put("faint", AnsiStyle.FAINT);
-        ansiElements.put("red", AnsiColor.RED);
-        ansiElements.put("green", AnsiColor.GREEN);
-        ansiElements.put("yellow", AnsiColor.YELLOW);
-        ansiElements.put("blue", AnsiColor.BLUE);
-        ansiElements.put("magenta", AnsiColor.MAGENTA);
-        ansiElements.put("cyan", AnsiColor.CYAN);
-        ELEMENTS = Collections.unmodifiableMap(ansiElements);
-    }
+Scenario 4: Authentication Flow Validation
 
-    @Override
-    protected String transform(ILoggingEvent event, String in) {
-        AnsiElement element = ELEMENTS.get(getFirstOption());
-        List<Marker> markers = event.getMarkerList();
-        if ((markers != null && !markers.isEmpty() && markers.get(0).contains(CRLF_SAFE_MARKER)) || isLoggerSafe(event)) {
-            return in;
-        }
-        String replacement = element == null ? "_" : toAnsiString("_", element);
-        return in.replaceAll("[\n\r\t]", replacement);
-    }
+Given a user attempts to access the UI
+When authentication is triggered
+Then the request should be routed through the adapter and validated successfully
 
-    protected boolean isLoggerSafe(ILoggingEvent event) {
-        for (String safeLogger : SAFE_LOGS) {
-            if (event.getLoggerName().startsWith(safeLogger)) {
-                return true;
-            }
-        }
-        return false;
-    }
+Scenario 5: Authorization Handling
 
-    protected String toAnsiString(String in, AnsiElement element) {
-        return AnsiOutput.toString(element, in);
-    }
-}
+Given an authenticated user
+When authorization rules are applied
+Then access should be granted or denied based on configured policies
 
+Scenario 6: Configuration Validation
 
-package com.mycompany.insurance.config;
+Given Helm values are configured
+When the deployment is executed
+Then all required configurations (endpoints, secrets, env variables) should be applied correctly
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+Scenario 7: Deployment Stability
 
-import ch.qos.logback.classic.spi.ILoggingEvent;
-import java.util.Collections;
-import java.util.List;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
-import org.springframework.boot.ansi.AnsiColor;
-import org.springframework.boot.ansi.AnsiElement;
-
-class CRLFLogConverterTest {
-
-    @Test
-    void transformShouldReturnInputStringWhenMarkerListIsEmpty() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        when(event.getMarkerList()).thenReturn(null);
-        when(event.getLoggerName()).thenReturn("org.hibernate.example.Logger");
-        String input = "Test input string";
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        String result = converter.transform(event, input);
-
-        assertEquals(input, result);
-    }
-
-    @Test
-    void transformShouldReturnInputStringWhenMarkersContainCRLFSafeMarker() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        Marker marker = MarkerFactory.getMarker("CRLF_SAFE");
-        List<Marker> markers = Collections.singletonList(marker);
-        when(event.getMarkerList()).thenReturn(markers);
-        String input = "Test input string";
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        String result = converter.transform(event, input);
-
-        assertEquals(input, result);
-    }
-
-    @Test
-    void transformShouldReturnInputStringWhenMarkersNotContainCRLFSafeMarker() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        Marker marker = MarkerFactory.getMarker("CRLF_NOT_SAFE");
-        List<Marker> markers = Collections.singletonList(marker);
-        when(event.getMarkerList()).thenReturn(markers);
-        when(event.getLoggerName()).thenReturn("org.hibernate.example.Logger");
-        String input = "Test input string";
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        String result = converter.transform(event, input);
-
-        assertEquals(input, result);
-    }
-
-    @Test
-    void transformShouldReturnInputStringWhenLoggerIsSafe() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        when(event.getLoggerName()).thenReturn("org.hibernate.example.Logger");
-        String input = "Test input string";
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        String result = converter.transform(event, input);
-
-        assertEquals(input, result);
-    }
-
-    @Test
-    void transformShouldReplaceNewlinesAndCarriageReturnsWithUnderscoreWhenMarkersDoNotContainCRLFSafeMarkerAndLoggerIsNotSafe() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        List<Marker> markers = Collections.emptyList();
-        when(event.getMarkerList()).thenReturn(markers);
-        when(event.getLoggerName()).thenReturn("com.mycompany.myapp.example.Logger");
-        String input = "Test\ninput\rstring";
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        String result = converter.transform(event, input);
-
-        assertEquals("Test_input_string", result);
-    }
-
-    @Test
-    void transformShouldReplaceNewlinesAndCarriageReturnsWithAnsiStringWhenMarkersDoNotContainCRLFSafeMarkerAndLoggerIsNotSafeAndAnsiElementIsNotNull() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        List<Marker> markers = Collections.emptyList();
-        when(event.getMarkerList()).thenReturn(markers);
-        when(event.getLoggerName()).thenReturn("com.mycompany.myapp.example.Logger");
-        String input = "Test\ninput\rstring";
-        CRLFLogConverter converter = new CRLFLogConverter();
-        converter.setOptionList(List.of("red"));
-
-        String result = converter.transform(event, input);
-
-        assertEquals("Test_input_string", result);
-    }
-
-    @Test
-    void isLoggerSafeShouldReturnTrueWhenLoggerNameStartsWithSafeLogger() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        when(event.getLoggerName()).thenReturn("org.springframework.boot.autoconfigure.example.Logger");
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        boolean result = converter.isLoggerSafe(event);
-
-        assertTrue(result);
-    }
-
-    @Test
-    void isLoggerSafeShouldReturnFalseWhenLoggerNameDoesNotStartWithSafeLogger() {
-        ILoggingEvent event = mock(ILoggingEvent.class);
-        when(event.getLoggerName()).thenReturn("com.mycompany.myapp.example.Logger");
-        CRLFLogConverter converter = new CRLFLogConverter();
-
-        boolean result = converter.isLoggerSafe(event);
-
-        assertFalse(result);
-    }
-
-    @Test
-    void testToAnsiString() {
-        CRLFLogConverter cut = new CRLFLogConverter();
-        AnsiElement ansiElement = AnsiColor.RED;
-
-        String result = cut.toAnsiString("input", ansiElement);
-
-        assertThat(result).isEqualTo("input");
-    }
-}
-
+Given the component is deployed in a lower environment
+When sanity and integration tests are executed
+Then the system should function without errors or failures
 
 
 
